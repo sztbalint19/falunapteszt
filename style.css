@@ -1,116 +1,128 @@
-body {
-    font-family: 'Raleway', sans-serif;
-    background: linear-gradient(to bottom, #fff9e6, #ffd9a8);
+/* Alap stílus */
+body, html {
     margin: 0;
     padding: 0;
-    color: #4b2a17;
+    font-family: 'Roboto', sans-serif; /* Modernebb betűtípus */
+    color: #333333; /* Sötétszürke szövegszín a könnyebb olvashatóság érdekében */
+    height: 100%;
     overflow-x: hidden;
+    background: linear-gradient(to bottom right, #e3f2fd, #90caf9); /* Színátmenetes világoskék háttér */
+    background-attachment: fixed; /* Letapadt háttér mozgás közben */
+    background-size: cover;
 }
-.container {
-    max-width: 900px;
-    margin: 30px auto;
-    background: #ffffff;
-    border: 5px solid #d77a5a;
-    border-radius: 25px;
-    padding: 30px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Árnyék */
-}
+
+/* Fejléc */
 header {
     text-align: center;
     padding: 20px 0;
-    background: linear-gradient(to right, #d77a5a, #ffd1a1);
+    background: linear-gradient(to right, #42a5f5, #64b5f6); /* Kék árnyalatú fejléc */
     color: #ffffff;
-    border-radius: 15px;
-    margin-bottom: 20px;
+    border-radius: 0 0 15px 15px; /* Lekerekített alj */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Finom árnyék */
+    margin-bottom: 30px;
 }
 header h1 {
-    font-size: 2.8em;
+    font-size: 3em; /* Nagyobb címsor */
     margin: 0;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase; /* Nagybetűs cím a modern hatásért */
+    letter-spacing: 2px;
 }
+header p {
+    margin: 10px 0 0;
+    font-size: 1.4em;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/* Kép galéria */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    background: rgba(255, 255, 255, 0.6); /* Átlátszó fehér réteg */
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Árnyék a galéria körül */
+}
+
+.gallery-item {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Finom árnyék */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05); /* Zoom-effekt, amikor az egér fölé kerül */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Tartalom doboz (Programok: konténer) */
+.container {
+    width: 100%; /* Az egész oldal szélességét elfoglalja */
+    max-width: 100%; /* Az oldal szélességéhez igazodik */
+    text-align: center;
+    margin: 0 auto 30px; /* Középre helyezés és alsó margó */
+    background: rgba(255, 255, 255, 0.9); /* Világos fehér, de áttetsző réteg */
+    border-radius: 0; /* Megszüntetjük a sarkok lekerekítését */
+    padding: 30px; /* Nagyobb belső tér */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Erősebb árnyék */
+}
+
+.container h3 {
+    font-size: 1.8em;
+    color: #4caf50; /* A szín a fejléc színéhez illik */
+    margin-bottom: 20px;
+}
+
 ul {
     list-style: none;
     padding: 0;
-    font-size: 1.2em;
+    margin: 0;
+    font-size: 1em;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 20px; /* Nagyobb térköz */
     justify-content: center;
 }
+
 ul li {
-    position: relative;
+    background: #f0f4f8; /* Halvány kékesszürke háttér */
+    border: 1px solid #cdd6e4; /* Finom szegély */
+    border-radius: 12px;
     padding: 15px;
-    border: 2px solid #d2a67e;
-    border-radius: 10px;
-    background: #fef5e7;
-    cursor: pointer;
-    width: calc(100% / 2 - 30px); /* 2 oszlopos megjelenítés */
-    max-width: 400px;
-    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; /* Árnyék átmenet */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Alapértelmezett árnyék */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    flex: 1 1 calc(45% - 20px); /* Két oszlopos elrendezés */
+    max-width: 350px;
 }
+
 ul li:hover {
-    transform: scale(1.05);
-    background: #ffe4c4;
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Hover árnyék */
+    transform: translateY(-5px); /* Felugró hatás */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
+
 ul li img {
     width: 100%;
-    height: 200px; /* Egységes magasság */
+    height: 180px; /* Nagyobb képek */
     border-radius: 10px;
-    object-fit: cover; /* Az egységes arányok megőrzése */
-    visibility: hidden; /* Az elem láthatatlan, de helyet foglal */
     margin-bottom: 10px;
-    opacity: 0; /* Kezdeti áttetszőség nulla */
-    transition: opacity 1s ease-in; /* Animált áttetszőség */
+    object-fit: cover;
 }
-ul li:hover img {
-    visibility: visible;
-    opacity: 1;
-}
-ul li .placeholder {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.2em;
-    color: #d77a5a;
-    pointer-events: none; /* Kattintásra ne zavarjon */
-    transition: opacity 0.3s ease; /* Animált eltűnés */
-}
-ul li:hover .placeholder {
-    opacity: 0;
-    visibility: hidden; /* Rejtve hover után */
-}
-.details {
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    transition: all 1s ease; /* Animáció a részletek nyílására */
-}
-ul li:hover .details {
-    opacity: 1;
-    height: auto;
-    padding-top: 10px;
-}
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+
 footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #d77a5a;
+    font-size: 1em;
     color: #ffffff;
-    margin-top: 20px;
-    border-radius: 10px;
-}
-@media (max-width: 768px) {
-    ul li {
-        width: 100%;
-    }
+    background: #42a5f5;
+    padding: 15px;
+    border-radius: 15px 15px 0 0;
+    margin-top: 30px;
+    text-align: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
