@@ -2,12 +2,12 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif; /* Modernebb betűtípus */
-    color: #333333; /* Sötétszürke szövegszín a könnyebb olvashatóság érdekében */
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
     height: 100%;
     overflow-x: hidden;
-    background: linear-gradient(to bottom right, #e3f2fd, #90caf9); /* Színátmenetes világoskék háttér */
-    background-attachment: fixed; /* Letapadt háttér mozgás közben */
+    background: linear-gradient(to bottom right, #e3f2fd, #90caf9);
+    background-attachment: fixed;
     background-size: cover;
 }
 
@@ -15,17 +15,17 @@ body, html {
 header {
     text-align: center;
     padding: 20px 0;
-    background: linear-gradient(to right, #42a5f5, #64b5f6); /* Kék árnyalatú fejléc */
+    background: linear-gradient(to right, #42a5f5, #64b5f6);
     color: #ffffff;
-    border-radius: 0 0 15px 15px; /* Lekerekített alj */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Finom árnyék */
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
 }
 header h1 {
-    font-size: 3em; /* Nagyobb címsor */
+    font-size: 3em;
     margin: 0;
     font-weight: 700;
-    text-transform: uppercase; /* Nagybetűs cím a modern hatásért */
+    text-transform: uppercase;
     letter-spacing: 2px;
 }
 header p {
@@ -43,9 +43,9 @@ header p {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto 30px;
-    background: rgba(255, 255, 255, 0.6); /* Átlátszó fehér réteg */
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Árnyék a galéria körül */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .gallery-item {
@@ -53,33 +53,34 @@ header p {
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Finom árnyék */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-item:hover {
-    transform: scale(1.05); /* Zoom-effekt, amikor az egér fölé kerül */
+    transform: scale(1.05);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Tartalom doboz (Programok: konténer) */
 .container {
-    width: 100%; /* Az egész oldal szélességét elfoglalja */
-    max-width: 100%; /* Az oldal szélességéhez igazodik */
+    width: 100%;
+    max-width: 100%;
     text-align: center;
-    margin: 0 auto 30px; /* Középre helyezés és alsó margó */
-    background: rgba(255, 255, 255, 0.9); /* Világos fehér, de áttetsző réteg */
-    border-radius: 0; /* Megszüntetjük a sarkok lekerekítését */
-    padding: 30px; /* Nagyobb belső tér */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Erősebb árnyék */
+    margin: 0 auto 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .container h3 {
     font-size: 1.8em;
-    color: #4caf50; /* A szín a fejléc színéhez illik */
+    color: #4caf50;
     margin-bottom: 20px;
 }
 
+/* Felsorolás a programok alatt */
 ul {
     list-style: none;
     padding: 0;
@@ -87,33 +88,45 @@ ul {
     font-size: 1em;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Nagyobb térköz */
+    gap: 20px;
     justify-content: center;
 }
 
 ul li {
-    background: #f0f4f8; /* Halvány kékesszürke háttér */
-    border: 1px solid #cdd6e4; /* Finom szegély */
+    background: #f0f4f8;
+    border: 1px solid #cdd6e4;
     border-radius: 12px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: left;
-    flex: 1 1 calc(45% - 20px); /* Két oszlopos elrendezés */
+    flex: 1 1 calc(45% - 20px);
     max-width: 350px;
 }
 
 ul li:hover {
-    transform: translateY(-5px); /* Felugró hatás */
+    transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Program képek: fekete-fehér alapértelmezés, színes hover */
 ul li img {
     width: 100%;
-    height: 180px; /* Nagyobb képek */
+    height: 180px;
     border-radius: 10px;
     margin-bottom: 10px;
     object-fit: cover;
+    filter: grayscale(100%); /* Fekete-fehér */
+    transition: filter 0.3s ease-in-out; /* Lágy átmenet */
+}
+
+ul li img:hover {
+    filter: grayscale(0); /* Váltás színesre */
+}
+
+/* Mobil eszközök támogatása: kattintás esetén színes */
+ul li img:active {
+    filter: grayscale(0); /* Váltás színesre mobilon */
 }
 
 footer {
