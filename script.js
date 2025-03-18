@@ -13,7 +13,11 @@ function changeImageWithFade(item) {
     item.style.opacity = '0';
 
     setTimeout(() => {
-        const availableImages = imagePaths.filter(image => !currentlyUsedImages.includes(image));
+        let availableImages = imagePaths.filter(image => !currentlyUsedImages.includes(image));
+        if (availableImages.length === 0) {
+            currentlyUsedImages = []; // Újrakezdjük, ha az összes kép használatban van
+            availableImages = [...imagePaths];
+        }
         const randomImage = availableImages[Math.floor(Math.random() * availableImages.length)];
         currentlyUsedImages = currentlyUsedImages.filter(image => image !== item.style.backgroundImage.match(/url\(['"]?(.*?)['"]?\)/)?.[1]);
         currentlyUsedImages.push(randomImage);

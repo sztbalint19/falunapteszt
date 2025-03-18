@@ -6,7 +6,7 @@ body, html {
     color: #333333;
     height: 100%;
     overflow-x: hidden;
-    background: linear-gradient(to bottom right, #e3f2fd, #90caf9);
+    background: linear-gradient(to bottom right, #e3f2fd, #90caf9); /* Kék színátmenet */
     background-attachment: fixed;
     background-size: cover;
 }
@@ -15,7 +15,7 @@ body, html {
 header {
     text-align: center;
     padding: 20px 0;
-    background: linear-gradient(to right, #42a5f5, #64b5f6);
+    background: linear-gradient(to right, #42a5f5, #64b5f6); /* Kék árnyalatú fejléc */
     color: #ffffff;
     border-radius: 0 0 15px 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -57,7 +57,7 @@ header p {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto 30px;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.6); /* Átlátszó fehér háttér */
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -76,30 +76,35 @@ header p {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Tartalom doboz */
+/* Tartalom doboz (Programok konténer) */
 .container {
-    width: 100%;
+    width: 100%; /* A konténer teljes szélességet elfoglal */
     max-width: 100%;
     text-align: center;
     margin: 0 auto 30px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 0;
-    padding: 30px;
+    background: rgba(255, 255, 255, 0.9); /* Világos, de áttetsző */
+    border-radius: 0; /* Nincs lekerekítés */
+    padding: 30px; /* Kényelmes belső tér */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .container h3 {
-    font-size: 1.8em;
-    color: #4caf50;
-    margin-bottom: 20px;
+    font-size: 2em; /* Nagyobb betűméret */
+    color: #42a5f5; /* Modern kék szín */
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-transform: uppercase; /* Nagybetűs stílus */
+    letter-spacing: 1.5px; /* Térköz a betűk között */
+    border-bottom: 2px solid #42a5f5; /* Kék alsó vonal */
+    display: inline-block; /* Középre rendezés */
+    padding-bottom: 5px;
 }
 
-/* Programok képek stílusa */
+/* Programok lista */
 ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 1em;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -107,20 +112,28 @@ ul {
 }
 
 ul li {
-    background: #f0f4f8;
-    border: 1px solid #cdd6e4;
+    background: #ffffff; /* Fehér háttér a szöveg mögött */
+    border: 2px solid #cdd6e4; /* Vékony szegély */
     border-radius: 12px;
     padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Árnyék a szöveg mögött */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
-    flex: 1 1 calc(45% - 20px);
+    flex: 1 1 calc(45% - 20px); /* Rugalmas elrendezés */
     max-width: 350px;
+    text-align: center;
+}
+
+ul li p {
+    font-size: 1.2em; /* Szöveg mérete */
+    color: #37474f; /* Sötét szürke a szöveghez */
+    font-weight: 500; /* Kiemeléshez */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Finom árnyék a szöveg mögött */
+    margin-top: 10px;
 }
 
 ul li:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Erősebb árnyék hover esetén */
 }
 
 ul li img {
@@ -137,17 +150,54 @@ ul li img:hover {
     filter: grayscale(0);
 }
 
-ul li img:active {
-    filter: grayscale(0);
-}
-
+/* Footer */
 footer {
     font-size: 1em;
     color: #ffffff;
     background: #42a5f5;
     padding: 15px;
     border-radius: 15px 15px 0 0;
-    margin-top: 30px;
     text-align: center;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsív beállítások kisebb képernyőkhöz */
+@media only screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1.1em;
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    ul li {
+        flex: 1 1 calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 0.9em;
+    }
+
+    ul li img {
+        height: 140px;
+    }
+
+    .event-date, .countdown {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .container h3 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
 }
