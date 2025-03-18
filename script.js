@@ -5,46 +5,34 @@ const imagePaths = [
     'hatterkep13.jpg', 'hatterkep14.jpg'
 ];
 
-// Eltároljuk, hogy jelenleg melyik képek láthatók
+// Az éppen megjelenített képek követése
 let currentlyUsedImages = [];
 
 function changeImageWithFade(item) {
-    // Fade-out az aktuális képnél
     item.style.transition = 'opacity 1s ease-in-out';
     item.style.opacity = '0';
 
-    // 1 másodperc után új képet állít be
     setTimeout(() => {
-        // Készítsük el az elérhető képek listáját
         const availableImages = imagePaths.filter(image => !currentlyUsedImages.includes(image));
-
-        // Válassz egy random képet az elérhetőek közül
         const randomImage = availableImages[Math.floor(Math.random() * availableImages.length)];
-
-        // Az új képet adjuk hozzá a látható képekhez
         currentlyUsedImages = currentlyUsedImages.filter(image => image !== item.style.backgroundImage.match(/url\(['"]?(.*?)['"]?\)/)?.[1]);
         currentlyUsedImages.push(randomImage);
 
-        // Állítsuk be a képet
         item.style.backgroundImage = `url('${randomImage}')`;
-
-        // Fade-in az új képre
         item.style.opacity = '1';
-    }, 1000); // Fade-out időzítés
+    }, 1000);
 }
 
 function initializeGallery() {
     const galleryItems = document.querySelectorAll('.gallery-item');
 
-    // Kezdeti képek kiosztása, egyedi módon
     galleryItems.forEach((item, index) => {
-        const randomImage = imagePaths[index % imagePaths.length]; // Egyedi kezdőkép
-        currentlyUsedImages.push(randomImage); // Nyomon követjük a használt képeket
+        const randomImage = imagePaths[index % imagePaths.length];
+        currentlyUsedImages.push(randomImage);
         item.style.backgroundImage = `url('${randomImage}')`;
-        item.style.opacity = '1'; // Azonnali megjelenítés
+        item.style.opacity = '1';
     });
 
-    // Indítsuk el a véletlenszerű képváltást
     startRandomImageSwaps(galleryItems);
 }
 
@@ -52,9 +40,39 @@ function startRandomImageSwaps(galleryItems) {
     galleryItems.forEach(item => {
         setInterval(() => {
             changeImageWithFade(item);
-        }, Math.floor(Math.random() * 10000) + 10000); // 10-20 másodperc között
+        }, Math.floor(Math.random() * 10000) + 10000);
     });
 }
 
-// Ha az oldal betöltődött, inicializáljuk a galériát
-window.onload = initializeGallery;
+// Visszaszámláló hozzáadása
+function startCountdown() {
+    const eventDate = new Date('2025-09-24T00:00:00'); // Az esemény dátuma
+    const countdownElement = document.getElementById('countdown');
+
+    function updateCountdown() {
+        const now = new Date();
+        const timeDifference = eventDate - now;
+
+        if (timeDifference < 0) {
+            countdownElement.textContent = "Az esemény elkezdődött!";
+            clearInterval(intervalId); // Leállítjuk az intervallumot, ha elérkezik az idő
+            return;
+        }
+
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        countdownElement.textContent = `Visszaszámlálás: ${days} nap ${hours} óra ${minutes} perc ${seconds} másodperc`;
+    }
+
+    const intervalId = setInterval(updateCountdown, 1000); // Másodpercenként frissítjük
+    updateCountdown(); // Azonnali frissítés a betöltéskor
+}
+
+// Inicializálás az oldal betöltődésekor
+window.onload = () => {
+    initializeGallery();
+    startCountdown();
+};
