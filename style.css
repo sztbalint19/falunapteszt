@@ -1,0 +1,116 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(to bottom, #fff9e6, #ffd9a8);
+    margin: 0;
+    padding: 0;
+    color: #4b2a17;
+    overflow-x: hidden;
+}
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #ffffff;
+    border: 5px solid #d77a5a;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Árnyék */
+}
+header {
+    text-align: center;
+    padding: 20px 0;
+    background: linear-gradient(to right, #d77a5a, #ffd1a1);
+    color: #ffffff;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+header h1 {
+    font-size: 2.8em;
+    margin: 0;
+    font-weight: 600;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+ul li {
+    position: relative;
+    padding: 15px;
+    border: 2px solid #d2a67e;
+    border-radius: 10px;
+    background: #fef5e7;
+    cursor: pointer;
+    width: calc(100% / 2 - 30px); /* 2 oszlopos megjelenítés */
+    max-width: 400px;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; /* Árnyék átmenet */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Alapértelmezett árnyék */
+}
+ul li:hover {
+    transform: scale(1.05);
+    background: #ffe4c4;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Hover árnyék */
+}
+ul li img {
+    width: 100%;
+    height: 200px; /* Egységes magasság */
+    border-radius: 10px;
+    object-fit: cover; /* Az egységes arányok megőrzése */
+    visibility: hidden; /* Az elem láthatatlan, de helyet foglal */
+    margin-bottom: 10px;
+    opacity: 0; /* Kezdeti áttetszőség nulla */
+    transition: opacity 1s ease-in; /* Animált áttetszőség */
+}
+ul li:hover img {
+    visibility: visible;
+    opacity: 1;
+}
+ul li .placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2em;
+    color: #d77a5a;
+    pointer-events: none; /* Kattintásra ne zavarjon */
+    transition: opacity 0.3s ease; /* Animált eltűnés */
+}
+ul li:hover .placeholder {
+    opacity: 0;
+    visibility: hidden; /* Rejtve hover után */
+}
+.details {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all 1s ease; /* Animáció a részletek nyílására */
+}
+ul li:hover .details {
+    opacity: 1;
+    height: auto;
+    padding-top: 10px;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #d77a5a;
+    color: #ffffff;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+@media (max-width: 768px) {
+    ul li {
+        width: 100%;
+    }
+}

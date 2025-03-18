@@ -1,0 +1,21 @@
+{
+  "event": {
+    "title": "Meghívó - Szüreti Falunap és Felvonulás Leányváron",
+    "date": "2025-09-24",
+    "day": "Szerda",
+    "location": "Leányvár főtere",
+    "organizer": "Leányvári Német Nemzetiségi Egyesület",
+    "contact": {
+      "email": "info@leanyvarfalunap.hu",
+      "phone": "+36 20 123 4567"
+    },
+    "highlights": [
+      "Hagyományos szüreti felvonulás látványos dekorációval",
+      "Pilisszentiváni Fúvószenekar előadása",
+      "Leányvári kultúrcsoportok fellépése",
+      "Szüreti borkóstoló finom borokkal",
+      "Traktorfelvonulás és bemutató"
+    ],
+    "emojis": ["🍇", "🎶", "🍷", "🚜", "🎉"]
+  }
+}
