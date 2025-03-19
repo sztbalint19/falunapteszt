@@ -9,13 +9,19 @@
       "email": "info@leanyvarfalunap.hu",
       "phone": "+36 20 123 4567"
     },
-    "highlights": [
-      "Hagyományos szüreti felvonulás látványos dekorációval",
-      "Pilisszentiváni Fúvószenekar előadása",
-      "Leányvári kultúrcsoportok fellépése",
-      "Szüreti borkóstoló finom borokkal",
-      "Traktorfelvonulás és bemutató"
-    ],
-    "emojis": ["🍇", "🎶", "🍷", "🚜", "🎉"]
+    "highlights": {
+      "grape_harvest": "Hagyományos szüreti felvonulás látványos dekorációval",
+      "brass_band": "Pilisszentiváni Fúvószenekar előadása",
+      "cultural_dance": "Leányvári kultúrcsoportok fellépése",
+      "wine_tasting": "Szüreti borkóstoló finom borokkal",
+      "tractor_show": "Traktorfelvonulás és bemutató"
+    },
+    "emojis": {
+      "grape_harvest": "🍇",
+      "brass_band": "🎶",
+      "cultural_dance": "💃",
+      "wine_tasting": "🍷",
+      "tractor_show": "🚜"
+    }
   }
 }

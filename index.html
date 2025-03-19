@@ -6,7 +6,8 @@
     <title>Meghívó - Modern Interaktív Szüreti Falunap</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -16,51 +17,53 @@
 
     <!-- Kép galéria szekció -->
     <section class="image-gallery">
-        <div class="gallery-item" id="gallery-item-1"></div>
-        <div class="gallery-item" id="gallery-item-2"></div>
-        <div class="gallery-item" id="gallery-item-3"></div>
-        <div class="gallery-item" id="gallery-item-4"></div>
-        <div class="gallery-item" id="gallery-item-5"></div>
-        <div class="gallery-item" id="gallery-item-6"></div>
-        <div class="gallery-item" id="gallery-item-7"></div>
-        <div class="gallery-item" id="gallery-item-8"></div>
-        <div class="gallery-item" id="gallery-item-9"></div>
-        <div class="gallery-item" id="gallery-item-10"></div>
-        <div class="gallery-item" id="gallery-item-11"></div>
-        <div class="gallery-item" id="gallery-item-12"></div>
-        <div class="gallery-item" id="gallery-item-13"></div>
-        <div class="gallery-item" id="gallery-item-14"></div>
+        <div class="gallery-container">
+            <!-- Galéria elemek -->
+            <div class="gallery-item" style="background-image: url('images/hatterkep1.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/hatterkep2.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/hatterkep3.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/hatterkep4.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/hatterkep5.jpg');"></div>
+        </div>
     </section>
+
+    <!-- Modális konténer -->
+    <div id="program-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p></p> <!-- Empty paragraph for dynamic content -->
+        </div>
+    </div>
 
     <div class="container">
         <p class="event-date"><strong>Időpont:</strong> 2025. szeptember 24., szerda</p>
-        <p class="countdown" id="countdown"></p> <!-- A visszaszámláló helye -->
+        <p class="countdown" id="countdown"></p> <!-- Áthelyezve ide -->
         <h3>Programok:</h3>
         <ul>
             <li>
-                <img src="grape_harvest.jpg" alt="Szüreti felvonulás">
+                <img src="images/grape_harvest.jpg" alt="Szüreti felvonulás" data-program="grape_harvest">
                 <p>🍇 <strong>Szüreti felvonulás</strong></p>
                 <div class="details">Hagyományőrző szüreti dekorációval és bemutatókkal.</div>
             </li>
             <li>
-                <img src="brass_band.jpg" alt="Fúvószenekar">
+                <img src="images/brass_band.jpg" alt="Fúvószenekar" data-program="brass_band">
                 <p>🎺 <strong>Pilisszentiváni Fúvószenekar</strong></p>
                 <div class="details">Lendületes zenei műsor.</div>
             </li>
             <li>
-                <img src="cultural_dance.jpg" alt="Tánccsoportok">
+                <img src="images/cultural_dance.jpg" alt="Tánccsoportok" data-program="cultural_dance">
                 <p>💃 <strong>Nemzetiségi kultúrcsoportok</strong></p>
                 <div class="details">Hagyományőrző tánccsoportok fellépései.</div>
             </li>
             <li>
-                <img src="wine_tasting.jpg" alt="Borkóstoló">
+                <img src="images/wine_tasting.jpg" alt="Borkóstoló" data-program="wine_tasting">
                 <p>🍷 <strong>Szüreti borkóstoló</strong></p>
                 <div class="details">Környékbeli borok kóstolója.</div>
             </li>
             <li>
-                <img src="tractor_show.jpg" alt="Traktorfelvonulás">
-                <p>🐴 <strong>Lovaskocsis felvonulás</strong></p>
-                <div class="details">Szép lovak.</div>
+                <img src="images/tractor_show.jpg" alt="Traktorfelvonulás" data-program="tractor_show">
+                <p>🚜 <strong>Traktorfelvonulás</strong></p>
+                <div class="details">Traktorfelvonulás és bemutató.</div>
             </li>
         </ul>
     </div>
@@ -68,7 +71,5 @@
     <footer>
         <p>A Leányvári Német Nemzetiségi Egyesület szervezésében</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
