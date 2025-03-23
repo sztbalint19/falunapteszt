@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meghívó - Falunap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="script.js" defer></script>
+    <style>
+        header {
+            position: relative; /* A sticky helyett relative használata */
+            background: linear-gradient(135deg, #f9fbe7, #f2b179);
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex; /* Flexbox használata */
+            flex-direction: column;
+            align-items: center; /* Vízszintesen középre igazítás */
+            justify-content: center; /* Függőlegesen középre igazítás */
+            height: 200px; /* Magasság növelése */
+            padding: 0; /* Eltávolítjuk a paddinget, hogy ne tolódjon el */
+            margin: 0 auto; /* Középre igazítás */
+            width: 100%; /* Teljes szélesség */
+            box-sizing: border-box; /* A padding ne tolja el a tartalmat */
+            max-width: 2544px; /* Növelt maximális szélesség */
+        }
+
+        .inner-container {
+            display: flex; /* Flexbox használata */
+            flex-direction: column; /* Függőleges elrendezés */
+            align-items: center; /* Vízszintesen középre igazítás */
+            justify-content: center; /* Függőlegesen középre igazítás */
+            height: 100%; /* A szülő magasságának kitöltése */
+            max-width: 1200px; /* Maximális szélesség a középre igazításhoz */
+            margin: 0 auto; /* Középre igazítás */
+        }
+
+        .leaf-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* A slideshow mögött jelenjenek meg */
+            pointer-events: none; /* Ne lehessen interakcióba lépni vele */
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="inner-container">
+            <h1>Meghívó</h1>
+            <h2>Szüreti Felvonulás és Falunap</h2>
+            <!-- Galéria gomb eltávolítva innen -->
+        </div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍂</div>
+    </header>
+
+    <!-- Slideshow közvetlenül a galéria gomb alatt -->
+    <div id="slideshow">
+        <div class="slideshow-container">
+            <div class="slideshow-track">
+                <img src="images/hatterkep1.jpg" alt="Slideshow Image 1">
+                <img src="images/hatterkep2.jpg" alt="Slideshow Image 2">
+                <img src="images/hatterkep3.jpg" alt="Slideshow Image 3">
+                <img src="images/hatterkep4.jpg" alt="Slideshow Image 4">
+                <img src="images/hatterkep5.jpg" alt="Slideshow Image 5">
+                <img src="images/hatterkep6.jpg" alt="Slideshow Image 6">
+                <img src="images/hatterkep7.jpg" alt="Slideshow Image 7">
+                <img src="images/hatterkep8.jpg" alt="Slideshow Image 8">
+                <img src="images/hatterkep9.jpg" alt="Slideshow Image 9">
+                <img src="images/hatterkep10.jpg" alt="Slideshow Image 10">
+                <img src="images/hatterkep11.jpg" alt="Slideshow Image 11">
+                <img src="images/hatterkep12.jpg" alt="Slideshow Image 12">
+                <img src="images/hatterkep13.jpg" alt="Slideshow Image 13">
+                <img src="images/hatterkep14.jpg" alt="Slideshow Image 14">
+                <img src="images/hatterkep15.jpg" alt="Slideshow Image 15">
+                <img src="images/hatterkep16.jpg" alt="Slideshow Image 16">
+                <img src="images/hatterkep17.jpg" alt="Slideshow Image 17">
+                <img src="images/hatterkep18.jpg" alt="Slideshow Image 18">
+                <img src="images/hatterkep19.jpg" alt="Slideshow Image 19">
+                <img src="images/hatterkep20.jpg" alt="Slideshow Image 20">
+                <img src="images/hatterkep21.jpg" alt="Slideshow Image 21">
+                <img src="images/hatterkep22.jpg" alt="Slideshow Image 22">
+                <img src="images/hatterkep23.jpg" alt="Slideshow Image 23">
+                <img src="images/hatterkep24.jpg" alt="Slideshow Image 24">
+                <img src="images/hatterkep25.jpg" alt="Slideshow Image 25">
+                <img src="images/hatterkep26.jpg" alt="Slideshow Image 26">
+                <img src="images/hatterkep27.jpg" alt="Slideshow Image 27">
+                <img src="images/hatterkep28.jpg" alt="Slideshow Image 28">
+                <img src="images/hatterkep29.jpg" alt="Slideshow Image 29">
+                <img src="images/hatterkep30.jpg" alt="Slideshow Image 30">
+                <img src="images/hatterkep31.jpg" alt="Slideshow Image 31">
+                <img src="images/hatterkep32.jpg" alt="Slideshow Image 32">
+                <img src="images/hatterkep33.jpg" alt="Slideshow Image 33">
+                <img src="images/hatterkep34.jpg" alt="Slideshow Image 34">
+                <img src="images/hatterkep35.jpg" alt="Slideshow Image 35">
+                <img src="images/hatterkep36.jpg" alt="Slideshow Image 36">
+                <img src="images/hatterkep37.jpg" alt="Slideshow Image 37">
+                <img src="images/hatterkep38.jpg" alt="Slideshow Image 38">
+                <img src="images/hatterkep39.jpg" alt="Slideshow Image 39">
+                <img src="images/hatterkep40.jpg" alt="Slideshow Image 40">
+                <img src="images/hatterkep41.jpg" alt="Slideshow Image 41">
+                <img src="images/hatterkep42.jpg" alt="Slideshow Image 42">
+                <img src="images/hatterkep43.jpg" alt="Slideshow Image 43">
+                <img src="images/hatterkep44.jpg" alt="Slideshow Image 44">
+                <img src="images/hatterkep45.jpg" alt="Slideshow Image 45">
+                <img src="images/hatterkep46.jpg" alt="Slideshow Image 46">
+                <img src="images/hatterkep47.jpg" alt="Slideshow Image 47">
+                <img src="images/hatterkep48.jpg" alt="Slideshow Image 48">
+                <img src="images/hatterkep49.jpg" alt="Slideshow Image 49">
+                <img src="images/hatterkep50.jpg" alt="Slideshow Image 50">
+                <img src="images/hatterkep51.jpg" alt="Slideshow Image 51">
+                <img src="images/hatterkep52.jpg" alt="Slideshow Image 52">
+                <img src="images/hatterkep53.jpg" alt="Slideshow Image 53">
+                <img src="images/hatterkep54.jpg" alt="Slideshow Image 54">
+                <img src="images/hatterkep55.jpg" alt="Slideshow Image 55">
+                <img src="images/hatterkep56.jpg" alt="Slideshow Image 56">
+                <img src="images/hatterkep57.jpg" alt="Slideshow Image 57">
+                <img src="images/hatterkep58.jpg" alt="Slideshow Image 58">
+                <img src="images/hatterkep59.jpg" alt="Slideshow Image 59">
+                <img src="images/hatterkep60.jpg" alt="Slideshow Image 60">
+                <img src="images/hatterkep61.jpg" alt="Slideshow Image 61">
+                <img src="images/hatterkep62.jpg" alt="Slideshow Image 62">
+                <img src="images/hatterkep63.jpg" alt="Slideshow Image 63">
+                <img src="images/hatterkep64.jpg" alt="Slideshow Image 64">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Falevelek hozzáadása -->
+        <div class="leaf-container"></div>
+        <!-- Galéria gomb áthelyezve ide -->
+        <a href="gallery.html" class="gallery-button">Galéria</a>
+        <p class="event-date"><strong>Időpont:</strong> 2025. szeptember 24., szerda</p>
+        <p class="countdown" id="countdown"></p>
+        <h3>Programok:</h3>
+        <ul>
+            <li>
+                <img src="images/grape_harvest.jpg" alt="Szüreti felvonulás" data-program="grape_harvest">
+                <p>🍇 <strong>Szüreti felvonulás</strong></p>
+            </li>
+            <li>
+                <img src="images/brass_band.jpg" alt="Fúvószenekar" data-program="brass_band">
+                <p>🎺 <strong>Pilisszentiváni Fúvószenekar</strong></p>
+            </li>
+            <li>
+                <img src="images/cultural_dance.jpg" alt="Tánccsoportok" data-program="cultural_dance">
+                <p>💃 <strong>Nemzetiségi kultúrcsoportok</strong></p>
+            </li>
+            <li>
+                <img src="images/wine_tasting.jpg" alt="Borkóstoló" data-program="wine_tasting">
+                <p>🍷 <strong>Szüreti borkóstoló</strong></p>
+            </li>
+            <li>
+                <img src="images/tractor_show.jpg" alt="Traktorfelvonulás" data-program="tractor_show">
+                <p>🚜 <strong>Traktorfelvonulás</strong></p>
+            </li>
+        </ul>
+    </div>
+
+    <div id="program-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p></p>
+        </div>
+    </div>
+
+    <!-- Modális ablak -->
+    <div id="image-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <img id="modal-image" src="" alt="Nagyított kép">
+        </div>
+    </div>
+
+    <section class="image-gallery">
+        <div class="gallery-container">
+            <div class="gallery-item" style="background-image: url('images/hatterkep1.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/hatterkep2.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/hatterkep3.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/hatterkep4.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/hatterkep5.jpg');"></div>
+        </div>
+    </section>
+
+    <div class="organizer-section">
+        <p>A Leányvári Német Nemzetiségi Egyesület szervezésében</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Minden jog fenntartva</p>
+    </footer>
+
+    <script>
+        // Falevél hullás hozzáadása a .container-hez
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container .leaf-container');
+            if (!container) {
+                console.error('.leaf-container elem nem található!');
+                return;
+            }
+
+            function createFallingLeaf() {
+                const leaf = document.createElement('div');
+                leaf.classList.add('leaf');
+                leaf.textContent = '🍂'; // Falevél emoji
+
+                // Random pozíció és animáció
+                leaf.style.position = 'absolute';
+                leaf.style.left = `${Math.random() * 100}%`; // Véletlenszerű vízszintes pozíció
+                leaf.style.top = `-50px`; // Kezdő pozíció a konténer felett
+                leaf.style.fontSize = '1.5em'; // Méret
+                leaf.style.opacity = '0.8'; // Áttetszőség
+                leaf.style.animation = `fall ${Math.random() * 3 + 2}s linear infinite`; // Véletlenszerű időtartam
+
+                // A falevél hozzáadása a konténerhez
+                container.appendChild(leaf);
+
+                // Falevél eltávolítása az animáció végén
+                leaf.addEventListener('animationend', () => {
+                    leaf.remove();
+                });
+            }
+
+            // Falevelek generálása időközönként
+            setInterval(createFallingLeaf, 1000); // Új falevél minden másodpercben
+        });
+
+        // Falevél animáció CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            .leaf-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1; /* A slideshow mögött jelenjenek meg */
+                pointer-events: none; /* Ne lehessen interakcióba lépni vele */
+            }
+
+            @keyframes fall {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                }
+                100% {
+                    transform: translateY(100vh) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

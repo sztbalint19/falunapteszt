@@ -1,0 +1,710 @@
+/* Alap stílus */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: #4a2c2a;
+    height: 100%;
+    overflow-x: hidden; /* Megakadályozzuk a vízszintes görgetést */
+    background: url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Fejléc */
+header {
+    width: 100%; /* Teljes szélesség */
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, #f9fbe7, #f2b179); /* Színben a .container-hez igazítva */
+    background-size: cover;
+    background-blend-mode: overlay;
+    border: 2px solid #dcdde1; /* Szegély a .container-hez hasonlóan */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Árnyék a .container-hez igazítva */
+    padding: 30px; /* Belső tér */
+    border-radius: 0; /* Lekerekítés eltávolítva, hogy teljes szélességű legyen */
+    display: flex; /* Flexbox használata */
+    flex-direction: column; /* Függőleges elrendezés */
+    align-items: center; /* Vízszintesen középre igazítás */
+    justify-content: center; /* Függőlegesen középre igazítás */
+    gap: 10px;
+    max-width: 2480px;
+    position: relative; /* Ensure child elements are positioned relative to the header */
+    z-index: 1;
+    text-align: center; /* Szöveg középre igazítása */
+    overflow: hidden; /* Prevent leaves from overflowing */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Animáció hozzáadása */
+    height: 150px; /* Fejléc magassága */
+}
+
+.hidden-header {
+    transform: translateY(-100%); /* Fejléc eltolása a képernyőről */
+    opacity: 0; /* Átlátszóság beállítása */
+}
+
+header .leaf {
+    content: '🍂'; /* Autumn leaf emoji */
+    position: absolute;
+    font-size: 2.5em; /* Leaf size */
+    animation: fall 20s linear infinite; /* Lassabb esés */
+    opacity: 0.8; /* Slight transparency */
+    left: calc(var(--random-left, 50%) * 1%); /* Use CSS variable for random horizontal position */
+    animation-delay: var(--random-delay, 0s); /* Use CSS variable for random animation delay */
+}
+
+header .leaf:nth-child(1) { top: -50px; left: 10%; animation-delay: 0s; }
+header .leaf:nth-child(2) { top: -50px; left: 20%; animation-delay: 0.5s; }
+header .leaf:nth-child(3) { top: -50px; left: 30%; animation-delay: 1s; }
+header .leaf:nth-child(4) { top: -50px; left: 40%; animation-delay: 1.5s; }
+header .leaf:nth-child(5) { top: -50px; left: 50%; animation-delay: 2s; }
+header .leaf:nth-child(6) { top: -50px; left: 60%; animation-delay: 2.5s; }
+header .leaf:nth-child(7) { top: -50px; left: 70%; animation-delay: 3s; }
+header .leaf:nth-child(8) { top: -50px; left: 80%; animation-delay: 3.5s; }
+header .leaf:nth-child(9) { top: -50px; left: 90%; animation-delay: 4s; }
+header .leaf:nth-child(10) { top: -50px; left: 5%; animation-delay: 4.5s; }
+
+header .inner-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header h1, header p {
+    margin: 0;
+    display: inline-block;
+    background: linear-gradient(135deg, #f9fbe7, #f2b179);
+    color: #4a2c2a;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    margin: 20px auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+header h1::before, header h1::after, header p::before, header p::after {
+    content: none; /* A zöld pöttyök eltávolítása */
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 30px;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes borderGlow {
+    from {
+        box-shadow: 0 0 10px rgba(212, 163, 115, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(212, 163, 115, 1);
+    }
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 10px rgba(74, 44, 42, 0.5);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(74, 44, 42, 1);
+    }
+}
+
+@keyframes fall {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg); /* Start position */
+    }
+    50% {
+        transform: translateX(calc(var(--random-sway, 20px))) translateY(50vh) rotate(180deg); /* Midway with horizontal sway */
+    }
+    100% {
+        transform: translateX(calc(var(--random-sway, 20px) * 2)) translateY(100vh) rotate(360deg); /* End position */
+    }
+}
+
+header h1 {
+    order: 1;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+header p {
+    order: 2;
+    font-size: 0.9em;
+    padding: 8px 15px;
+    max-width: 80%;
+}
+
+header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #4a2c2a;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+/* Időpont és visszaszámláló */
+.event-date, .countdown {
+    font-size: 1.8em;
+    color: #4a2c2a;
+    background: linear-gradient(135deg, #f9fbe7, #f2b179);
+    border: none;
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.event-date:hover, .countdown:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #f2b179, #d46a6a); /* Illeszkedő szín */
+}
+
+/* Tartalom doboz (Programok konténer) */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: center;
+    background: linear-gradient(135deg, #f9fbe7, #f2b179);
+    background-size: cover;
+    background-blend-mode: overlay;
+    border: 2px solid #dcdde1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 0; /* Távolság eltávolítása a container tetején */
+    margin-bottom: 0; /* Lyuk eltávolítása */
+}
+
+.container h3 {
+    font-size: 1.8em;
+    color: #d46a6a; /* Őszi pirosas árnyalat */
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center; /* Szöveg középre igazítása */
+    border-bottom: 2px solid #f2b179; /* Finom alsó vonal */
+    padding-bottom: 10px; /* Tér az alsó vonal előtt */
+}
+
+/* Programok lista */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+ul li {
+    background: linear-gradient(135deg, #fff8e1, #f2b179);
+    border: 1px solid #d4a373;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+}
+
+ul li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #f2b179, #d46a6a);
+}
+
+ul li:hover img {
+    filter: grayscale(0);
+    border-color: #a83232;
+}
+
+ul li img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    border: 2px solid #e0e0e0;
+    transition: filter 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    pointer-events: auto;
+}
+
+ul li p {
+    font-size: 1em;
+    color: #37474f;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Képek kattinthatósága */
+.container ul li img {
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1em;
+    background: linear-gradient(135deg, #ffffff, #f0f4f8), url('images/pattern.png') no-repeat center center, #e8eaf6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border: 2px solid #dcdde1;
+    border-radius: 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    font-size: 0.9em;
+    text-align: center;
+    margin: 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 0; /* Lyuk eltávolítása */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+footer p {
+    display: inline-block;
+    background: linear-gradient(135deg, #d46a6a, #a83232);
+    color: #fff8e1;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    margin: 10px auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Modális konténer */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+}
+
+.modal.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+    text-align: center;
+    border: 2px solid #dcdde1;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.modal .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+}
+
+.modal .close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none; /* Az elem rejtve van */
+}
+
+.visible {
+    display: flex; /* Az elem láthatóvá válik */
+}
+
+/* Visszaszámláló */
+.countdown {
+    font-size: 1.8em;
+    color: #d32f2f;
+    text-align: center;
+    margin: 20px auto;
+    font-weight: bold;
+}
+
+.organizer {
+    text-align: center;
+    font-size: 1.2em;
+    color: #4a2c2a;
+    margin: 10px auto;
+    font-weight: bold;
+    background: linear-gradient(135deg, #fff8e1, #f2b179);
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.organizer-section {
+    text-align: center;
+    background: linear-gradient(135deg, #f2b179, #d46a6a);
+    color: #fff8e1;
+    padding: 15px 20px;
+    margin: 20px auto 0;
+    border-radius: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+}
+
+/* Kép nagyítás modális ablak */
+#image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none; /* Alapértelmezés szerint rejtve */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0; /* Láthatóság alapértelmezés szerint 0 */
+    transition: opacity 0.3s ease-in-out;
+}
+
+#image-modal.visible {
+    display: flex; /* Láthatóvá teszi az elemet */
+    opacity: 1; /* Teljesen látható */
+}
+
+#image-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#image-modal .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+}
+
+/* Slideshow */
+#slideshow {
+    width: 100%; /* A slideshow teljes szélességet foglal */
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    height: 300px; /* Magasság beállítása */
+    margin-bottom: 0; /* Távolság eltávolítása a slideshow alján */
+}
+
+.slideshow-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slideshow-track {
+    display: flex;
+    transition: transform 0.3s linear; /* Simább görgetés */
+    will-change: transform;
+    width: auto; /* Dinamikus szélesség a JavaScript által */
+    animation: scrollLeft linear infinite; /* Continuous loop */
+}
+
+.slideshow-track img {
+    width: 400px; /* Növelt szélesség */
+    height: 300px; /* Magasság változatlan */
+    object-fit: cover; /* A kép arányosan kitölti a teret */
+    margin-right: 0; /* Távolság eltávolítása */
+    border-right: 2px solid #ffffff; /* Fehér csík a képek között */
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% + 300px)); /* Adjust to loop seamlessly */
+    }
+}
+
+/* Responsív beállítások kisebb képernyőkhöz */
+@media only screen and (max-width: 768px) {
+    body, html {
+        font-size: 14px;
+        overflow-x: hidden; /* Vízszintes görgetés letiltása */
+    }
+
+    header {
+        padding: 20px;
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    header h1 {
+        position: static;
+        top: auto;
+        left: auto;
+        transform: none;
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    header h2 {
+        font-size: 1.5em;
+        margin-top: 0;
+        text-align: center;
+        margin-left: 10px;
+    }
+
+    header .inner-container {
+        text-align: center;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    .container {
+        padding: 15px;
+        margin: 0 auto;
+        text-align: center;
+        box-sizing: border-box;
+        margin-bottom: 0; /* Lyuk eltávolítása mobilon */
+    }
+
+    ul {
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    ul li {
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .container h3 {
+        font-size: 1.2em;
+    }
+
+    ul li {
+        width: 100%;
+        padding: 10px;
+    }
+
+    ul li img {
+        height: 140px;
+        object-position: center top; /* A kép tartalmát lejjebb tolja */
+    }
+
+    .event-date, .countdown {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .organizer-section {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    header p {
+        font-size: 1.1em;
+        text-align: center;
+    }
+
+    ul li {
+        width: 100%;
+        flex: 1 1 calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 1em;
+    }
+
+    ul li img {
+        height: 140px;
+    }
+
+    .event-date, .countdown {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .container h3 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    header h1, header h2 {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    header h2 {
+        margin-top: 10px;
+    }
+
+    @keyframes scrollLeft {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%); /* Végtelen görgetés mobilon */
+        }
+    }
+
+    .slideshow-track {
+        animation: none; /* Mobilon a JavaScript kezeli a görgetést */
+    }
+
+    footer {
+        margin-top: 0; /* Lyuk eltávolítása mobilon */
+    }
+
+    header .leaf {
+        display: none; /* A falevelek teljes eltávolítása mobilon */
+    }
+
+    .leaf-container {
+        display: none; /* Falevél konténer teljes eltávolítása mobilon */
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 87, 34, 0.5);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px rgba(255, 87, 34, 0.8);
+    }
+}
+
+.leaf {
+    position: absolute;
+    font-size: 2.5em;
+    animation: fall linear infinite;
+    pointer-events: none; /* Prevent interaction */
+}
+
+.gallery-button {
+    display: block;
+    background: linear-gradient(135deg, #f9fbe7, #f2b179); /* Illeszkedő szín */
+    color: #4a2c2a; /* Illeszkedő szövegszín */
+    text-decoration: none;
+    padding: 15px 20px; /* Az időpont méretéhez igazítva */
+    border-radius: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Az időpont árnyékához igazítva */
+    margin: 20px auto; /* Középre igazítás és távolság */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Hover állapot */
+    background: linear-gradient(135deg, #f2b179, #d46a6a); /* Illeszkedő szín */
+}
+
+#modal-image {
+    opacity: 1; /* Azonnali megjelenítés */
+}
+
+#modal-image.hidden {
+    display: none; /* Az áttetszőség helyett rejtjük el */
+}
+
+.gallery-button-container {
+    text-align: center;
+    margin: 20px 0; /* Távolság a slideshow-tól */
+}

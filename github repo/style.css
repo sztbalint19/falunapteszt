@@ -1,0 +1,351 @@
+/* Alap stílus */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Modern betűtípus */
+    color: #2c3e50; /* Sötétebb szürke szöveg */
+    height: 100%;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom right, #f8f9fa, #e9ecef); /* Világosabb színátmenet */
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Fejléc */
+header {
+    width: 100%; /* Teljes szélesség */
+    margin: 0 auto; /* Középre igazítás */
+    text-align: center; /* Szöveg középre igazítása */
+    padding: 0; /* Eltávolítjuk az eredeti paddinget */
+    background: linear-gradient(135deg, #ffffff, #f0f4f8), url('images/pattern.png') no-repeat center center; /* Színátmenet és egyszeri kép */
+    background-size: 100% 100%; /* A kép teljesen kitölti a fejlécet */
+    background-blend-mode: overlay; /* Rétegek keverése */
+    border: 2px solid #dcdde1; /* Finomabb szegély */
+    border-radius: 15px 15px 0 0; /* Lekerekített felső sarkok */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Lágyabb árnyék */
+    color: #42a5f5; /* Kék szín, amely illeszkedik a weboldal stílusához */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Erősebb árnyék */
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Finom árnyék a szöveg mögött */
+    display: flex; /* Flexbox használata a tartalom elrendezéséhez */
+    flex-direction: column; /* Függőleges elrendezés */
+    align-items: center; /* Középre igazítás vízszintesen */
+    justify-content: center; /* Középre igazítás függőlegesen */
+    gap: 10px; /* Távolság a két konténer között */
+    padding: 20px; /* Extra belső tér a tartalom körül */
+}
+header h1, header p {
+    display: inline-block; /* Blokk szintű megjelenés */
+    background: linear-gradient(135deg, #90caf9, #42a5f5); /* Világosabb kék színátmenet */
+    color: #ffffff; /* Fehér szöveg */
+    padding: 15px 25px; /* Belső tér */
+    border-radius: 25px; /* Lekerekített sarkok */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Árnyék */
+    margin: 10px auto; /* Középre igazítás és távolság */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Finom árnyék a szöveg mögött */
+}
+
+header h1 {
+    order: 1; /* Meghívó konténer legyen az első */
+    margin-bottom: 10px; /* Kis távolság a szüreti konténer előtt */
+}
+
+header p {
+    order: 2; /* Szüreti felvonulás konténer legyen a második */
+    font-size: 0.9em; /* Kisebb szövegméret */
+    padding: 8px 15px; /* Kisebb belső tér */
+    max-width: 80%; /* Szélesség korlátozása, hogy elférjen */
+}
+
+/* Időpont és visszaszámláló */
+.event-date, .countdown {
+    font-size: 1.5em;
+    color: #ffffff; /* Fehér szöveg */
+    background: linear-gradient(135deg, #42a5f5, #1e88e5); /* Modern kék színátmenet */
+    border: none; /* Szegély eltávolítása */
+    border-radius: 15px; /* Lekerekített sarkok */
+    padding: 15px 20px; /* Több belső tér */
+    margin: 20px auto; /* Egyenletes margó */
+    max-width: 800px; /* Szélesség igazítása a többi elemhez */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Erősebb árnyék */
+    text-align: center; /* Szöveg középre igazítása */
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animáció */
+    line-height: 1.5; /* Arányos szövegtávolság */
+}
+
+.event-date:hover, .countdown:hover {
+    transform: scale(1.05); /* Kicsit nagyobb méret hover esetén */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Erősebb árnyék hover esetén */
+    background: linear-gradient(135deg, #64b5f6, #2196f3); /* Színátmenet változás */
+}
+
+/* Kép galéria */
+.image-gallery {
+    position: relative; /* Pozícionálás a nyilakhoz */
+    display: flex;
+    align-items: center; /* Nyilak középre igazítása */
+    overflow: hidden; /* Görgetés elrejtése */
+    width: 100%; /* Teljes szélesség */
+    height: 300px; /* Galéria magassága */
+}
+
+.gallery-container {
+    display: flex; /* Képek elrendezése egy sorban */
+    flex-wrap: nowrap;
+    overflow-x: hidden; /* Manuális görgetéshez szükséges */
+    width: 100%; /* Teljes szélesség */
+    height: 100%; /* A galéria magasságának kitöltése */
+}
+
+.gallery-item {
+    flex: 0 0 33%; /* Szélesebb képek (egy sorban három kép) */
+    height: 100%; /* Teljes magasság */
+    background-size: cover; /* A kép teljesen kitölti az elemet */
+    background-position: center; /* Kép középre igazítása */
+    transition: transform 0.5s ease, filter 0.5s ease; /* Simább animáció */
+    filter: brightness(0.8); /* Sötétebb alapértelmezett megjelenés */
+    border-right: 2px solid #dcdde1; /* Finom elválasztó vonal */
+}
+
+.gallery-item:last-child {
+    border-right: none; /* Az utolsó elemnél nincs elválasztó vonal */
+}
+
+/* Eltávolítjuk a nyilak stílusait */
+.gallery-arrow {
+    display: none;
+}
+
+.left-arrow, .right-arrow {
+    display: none;
+}
+
+/* Tartalom doboz (Programok konténer) */
+.container {
+    width: 100%; /* Teljes szélesség */
+    margin: 0 auto; /* Középre igazítás */
+    max-width: none; /* Maximális szélesség korlátozásának eltávolítása */
+    text-align: center; /* Szöveg középre igazítása */
+    margin: 0; /* Margók eltávolítása */
+    background: linear-gradient(135deg, #ffffff, #f0f4f8), url('images/pattern.png') no-repeat center center; /* Színátmenet és egyszeri kép */
+    background-size: cover; /* A kép teljesen kitölti a konténert */
+    background-blend-mode: overlay; /* Rétegek keverése */
+    border: 2px solid #dcdde1; /* Finomabb szegély */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Lágyabb árnyék */
+    padding: 50px; /* Több belső tér */
+    border-radius: 0; /* Lekerekítések eltávolítása */
+}
+
+.container h3 {
+    font-size: 2em; /* Kisebb, modern méret */
+    color: #42a5f5; /* Kék szín, amely illeszkedik a fejléc színéhez */
+    margin-bottom: 40px; /* Arányos távolság a szöveg alatt */
+    font-weight: 700; /* Vastagabb betűk */
+    text-transform: uppercase; /* Nagybetűs stílus */
+    letter-spacing: 1.5px; /* Térköz a betűk között */
+    border-bottom: 3px solid #64b5f6; /* Kék árnyalatú alsó vonal */
+    display: inline-block; /* Középre rendezés */
+    padding-bottom: 8px; /* Extra tér az alsó vonal előtt */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Finom árnyék a szöveg mögött */
+    background: linear-gradient(to right, #e3f2fd, #90caf9); /* Halvány kék színátmenet */
+    padding: 10px 20px; /* Tér a szöveg körül */
+    border-radius: 8px; /* Lekerekített sarkok */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Árnyék a szöveg mögött */
+    text-align: center; /* Szöveg középre igazítása */
+}
+
+/* Programok lista */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto; /* Középre igazítás */
+    display: flex;
+    flex-wrap: nowrap; /* Ne törjenek új sorba a képek */
+    overflow-x: auto; /* Vízszintes görgetés engedélyezése */
+    gap: 10px; /* Kisebb távolság a képek között */
+    justify-content: center; /* Középre igazítás */
+}
+
+ul li {
+    background: linear-gradient(135deg, #f9f9f9, #e3e8ee); /* Kártyaszerű színátmenet */
+    border: 1px solid #cfd8dc; /* Finomabb szegély */
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Finomabb árnyék */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 0 0 auto; /* Fix szélességű elemek */
+    max-width: 300px; /* Szélesség korlátozása */
+    text-align: center;
+    width: 100%; /* Rugalmas szélesség */
+    height: auto; /* Automatikus magasság */
+    display: flex; /* Flexbox a tartalom igazításához */
+    flex-direction: column; /* Függőleges elrendezés */
+    justify-content: space-between; /* Egyenletes elosztás */
+    align-items: center; /* Középre igazítás */
+}
+
+ul li p {
+    font-size: 1.2em; /* Szöveg mérete */
+    color: #37474f; /* Sötét szürke a szöveghez */
+    font-weight: 500; /* Kiemeléshez */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Finom árnyék a szöveg mögött */
+    margin-top: 10px;
+}
+
+ul li:hover {
+    transform: translateY(-10px); /* Kiemelkedés hover esetén */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Erősebb árnyék hover esetén */
+}
+
+ul li img {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    border: 2px solid #e0e0e0; /* Finom keret a képek körül */
+    transition: filter 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+ul li img:hover {
+    filter: grayscale(0);
+    border-color: #42a5f5; /* Kiemelés hover esetén */
+}
+
+/* Képek kattinthatósága */
+.container ul li img {
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    width: 100%; /* Teljes szélesség */
+    margin: 0 auto; /* Középre igazítás */
+    font-size: 1em;
+    background: linear-gradient(135deg, #90caf9, #42a5f5); /* Kékes színátmenet */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Finom árnyék a szöveg mögött */
+    color: #ffffff; /* Fehér szöveg */
+    background: linear-gradient(135deg, #ffffff, #f0f4f8), url('images/pattern.png') no-repeat center center; /* Színátmenet és egyszeri kép */
+    background-size: 100% 100%; /* A kép teljesen kitölti a konténert */
+    background-blend-mode: overlay; /* Rétegek keverése */
+    border: 2px solid #dcdde1; /* Finomabb szegély */
+    border-radius: 0; /* Lekerekítések eltávolítása */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Lágyabb árnyék */
+    padding: 0; /* Eltávolítjuk az eredeti paddinget */
+    font-size: 0.9em; /* Kisebb szövegméret */
+    text-align: center; /* Szöveg középre igazítása */
+    margin: 0; /* Margók eltávolítása */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Finomabb árnyék */
+    margin-top: 20px; /* Kis távolság a felette lévő konténertől */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Finom árnyék a szöveg mögött */
+}
+
+footer p {
+    display: inline-block; /* Blokk szintű megjelenés */
+    background: linear-gradient(135deg, #64b5f6, #1e88e5); /* Sötétebb kék színátmenet */
+    color: #ffffff; /* Fehér szöveg */
+    padding: 10px 20px; /* Belső tér */
+    border-radius: 20px; /* Lekerekített sarkok */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Árnyék */
+    margin: 10px auto; /* Középre igazítás és távolság */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Finom árnyék a szöveg mögött */
+    text-align: center; /* Szöveg középre igazítása */
+    margin-top: 20px; /* Egyenletes távolság a szöveg felett */
+}
+
+/* Modális konténer */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+}
+
+.modal.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 30px; /* Több hely a tartalomnak */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 800px; /* Szélesebb konténer */
+    width: 90%;
+    max-height: 80%; /* Magasság korlátozása */
+    overflow-y: auto; /* Görgetés hosszú szövegekhez */
+}
+
+.modal .close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Visszaszámláló */
+.countdown {
+    font-size: 1.5em;
+    color: #ff0000;
+    text-align: center; /* Középre igazítás */
+    margin: 20px auto; /* Automatikus középre helyezés */
+}
+
+/* Responsív beállítások kisebb képernyőkhöz */
+@media only screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1.1em;
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    ul li {
+        flex: 1 1 calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 1em; /* Kisebb szövegméret */
+    }
+
+    ul li img {
+        height: 140px;
+    }
+
+    .event-date, .countdown {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .container h3 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+}

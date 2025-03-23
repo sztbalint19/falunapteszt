@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Képgaléria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Raleway', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: linear-gradient(135deg, #f9fbe7, #f2b179);
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 200px; /* Magasság növelése */
+            padding: 0;
+            transition: transform 0.3s ease; /* Fejléc animáció */
+        }
+
+        .inner-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #f2b179;
+            color: #fff;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .gallery-grid img {
+                height: 100px;
+            }
+
+            footer {
+                font-size: 0.8em;
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="inner-container">
+            <h1>Képgaléria</h1>
+            <h2>Fényképek korábbi eseményekről</h2>
+            <a href="index.html" class="back-button" style="margin-top: 10px; text-decoration: none; color: white; background: #f2b179; padding: 10px 20px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">Vissza az előző oldalra</a>
+        </div>
+    </header>
+
+    <div class="gallery-grid">
+        <img src="images/photo1.jpg" alt="Photo 1" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo2.jpg" alt="Photo 2" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo3.jpg" alt="Photo 3" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo4.jpg" alt="Photo 4" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo5.jpg" alt="Photo 5" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo6.jpg" alt="Photo 6" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo7.jpg" alt="Photo 7" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo8.jpg" alt="Photo 8" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo9.jpg" alt="Photo 9" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo10.jpg" alt="Photo 10" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo11.jpg" alt="Photo 11" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo12.jpg" alt="Photo 12" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo13.jpg" alt="Photo 13" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo14.jpg" alt="Photo 14" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo15.jpg" alt="Photo 15" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo16.jpg" alt="Photo 16" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo17.jpg" alt="Photo 17" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo18.jpg" alt="Photo 18" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo19.jpg" alt="Photo 19" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo20.jpg" alt="Photo 20" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo21.jpg" alt="Photo 21" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo22.jpg" alt="Photo 22" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo23.jpg" alt="Photo 23" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo24.jpg" alt="Photo 24" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo25.jpg" alt="Photo 25" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo26.jpg" alt="Photo 26" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo27.jpg" alt="Photo 27" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo28.jpg" alt="Photo 28" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo29.jpg" alt="Photo 29" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo30.jpg" alt="Photo 30" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo31.jpg" alt="Photo 31" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo32.jpg" alt="Photo 32" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo33.jpg" alt="Photo 33" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo34.jpg" alt="Photo 34" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo35.jpg" alt="Photo 35" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo36.jpg" alt="Photo 36" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo37.jpg" alt="Photo 37" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo38.jpg" alt="Photo 38" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo39.jpg" alt="Photo 39" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo40.jpg" alt="Photo 40" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo41.jpg" alt="Photo 41" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo42.jpg" alt="Photo 42" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo43.jpg" alt="Photo 43" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo44.jpg" alt="Photo 44" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo45.jpg" alt="Photo 45" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo46.jpg" alt="Photo 46" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo47.jpg" alt="Photo 47" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo48.jpg" alt="Photo 48" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo49.jpg" alt="Photo 49" class="gallery-image" onclick="openModal(this)">
+        <img src="images/photo50.jpg" alt="Photo 50" class="gallery-image" onclick="openModal(this)">
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Minden jog fenntartva</p>
+    </footer>
+
+    <script>
+        let currentImageIndex = 0;
+        let images = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            images = Array.from(document.querySelectorAll('.gallery-image'));
+            console.log('Images loaded:', images); // Hibakeresés
+            if (images.length === 0) {
+                console.error('No images found with the class "gallery-image".');
+            }
+        });
+
+        function openModal(image) {
+            console.log('openModal called');
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            currentImageIndex = images.indexOf(image);
+            console.log('Current image index on open:', currentImageIndex); // Hibakeresés
+            if (currentImageIndex === -1) {
+                console.error('Image not found in the images array.');
+                return;
+            }
+            modalImage.src = image.src;
+            modal.classList.remove('hidden');
+            modal.classList.add('visible');
+            console.log('Modal classes:', modal.classList);
+
+            // Regisztráljuk a billentyűzet eseményfigyelőt
+            document.addEventListener('keydown', handleKeyNavigation);
+
+            // Regisztráljuk a kattintási eseményt a modális ablakra
+            modal.addEventListener('click', handleModalClick);
+        }
+
+        function closeModal() {
+            console.log('closeModal called');
+            const modal = document.getElementById('image-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('visible');
+            console.log('Modal closed:', modal.classList);
+
+            // Eltávolítjuk a billentyűzet eseményfigyelőt
+            document.removeEventListener('keydown', handleKeyNavigation);
+
+            // Eltávolítjuk a kattintási eseményt a modális ablakról
+            modal.removeEventListener('click', handleModalClick);
+        }
+
+        function navigateImage(direction, event) {
+            event.stopPropagation(); // Megakadályozzuk az esemény buborékolását
+            console.log('Navigating:', direction); // Hibakeresés
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1; // Wrap to last image
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0; // Wrap to first image
+            }
+            console.log('Current image index:', currentImageIndex); // Hibakeresés
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = images[currentImageIndex].src; // Azonnali képváltás
+            console.log('New image src:', modalImage.src); // Hibakeresés
+        }
+
+        function handleKeyNavigation(event) {
+            console.log('Key pressed:', event.key); // Hibakeresés
+            if (event.key === 'ArrowLeft') {
+                navigateImage(-1, event); // Balra nyíl
+            } else if (event.key === 'ArrowRight') {
+                navigateImage(1, event); // Jobbra nyíl
+            } else if (event.key === 'Escape') {
+                closeModal(); // Bezárás az Escape gombbal
+            }
+        }
+
+        function handleModalClick(event) {
+            const modalImage = document.getElementById('modal-image');
+            if (event.target !== modalImage) {
+                closeModal();
+            }
+        }
+
+        let startX = 0; // Kezdő érintési pozíció
+        let endX = 0;   // Végső érintési pozíció
+
+        function handleTouchStart(event) {
+            startX = event.touches[0].clientX; // Az érintés kezdő pozíciója
+        }
+
+        function handleTouchMove(event) {
+            endX = event.touches[0].clientX; // Az érintés aktuális pozíciója
+        }
+
+        function handleTouchEnd() {
+            const diffX = startX - endX; // Az érintés iránya és távolsága
+            if (diffX > 50) {
+                // Balra húzás
+                navigateImage(1, { stopPropagation: () => {} });
+            } else if (diffX < -50) {
+                // Jobbra húzás
+                navigateImage(-1, { stopPropagation: () => {} });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('image-modal');
+            if (modal) {
+                modal.addEventListener('touchstart', handleTouchStart);
+                modal.addEventListener('touchmove', handleTouchMove);
+                modal.addEventListener('touchend', handleTouchEnd);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('header');
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+
+                if (currentScrollY > lastScrollY) {
+                    // Görgetés lefelé: fejléc eltűnik
+                    header.classList.add('hidden-header');
+                } else {
+                    // Görgetés felfelé: fejléc visszatér
+                    header.classList.remove('hidden-header');
+                }
+
+                lastScrollY = currentScrollY;
+            });
+        });
+    </script>
+
+    <div id="image-modal" class="modal hidden">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <img id="modal-image" src="" alt="Nagyított kép">
+        <button class="left-arrow" onclick="navigateImage(-1, event)" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5em; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s ease;">
+            &#10094;
+        </button>
+        <button class="right-arrow" onclick="navigateImage(1, event)" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5em; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); cursor: pointer; transition: transform 0.3s ease;">
+            &#10095;
+        </button>
+    </div>
+</body>
+</html>
