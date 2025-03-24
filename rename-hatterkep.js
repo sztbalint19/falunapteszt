@@ -4,20 +4,17 @@ const path = require('path');
 // A mappa elérési útja
 const folderPath = path.resolve(__dirname, 'TDZ_2019-09-21 Falunap felvonulás');
 
-// Ellenőrizzük, hogy a mappa létezik-e
 if (!fs.existsSync(folderPath)) {
     console.error(`A mappa nem található: ${folderPath}`);
     process.exit(1);
 }
 
-// A fájlok átnevezése
 fs.readdir(folderPath, (err, files) => {
     if (err) {
         console.error('Hiba a mappa olvasása közben:', err);
         return;
     }
 
-    // Csak a .jpg fájlokat szűrjük ki
     const jpgFiles = files.filter(file => path.extname(file).toLowerCase() === '.jpg');
     console.log(`Talált .jpg fájlok: ${jpgFiles.join(', ')}`);
 
@@ -26,7 +23,6 @@ fs.readdir(folderPath, (err, files) => {
         return;
     }
 
-    // Az átnevezés kezdő indexe
     let index = 15;
 
     jpgFiles.forEach((file) => {

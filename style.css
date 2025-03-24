@@ -2,57 +2,66 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Arial', sans-serif;
     color: #4a2c2a;
     height: 100%;
-    overflow-x: hidden; /* Megakadályozzuk a vízszintes görgetést */
+    overflow-x: hidden;
     background: url('images/background.jpg') no-repeat center center fixed;
     background-size: cover;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Fejléc */
 header {
-    width: 100%; /* Teljes szélesség */
+    width: 100%;
     margin: 0 auto;
     text-align: center;
-    background: linear-gradient(135deg, #f9fbe7, #f2b179); /* Színben a .container-hez igazítva */
+    background-color: #f2b179;
+    padding: 10px 15px; /* Reduce padding */
+    color: white;
+    font-size: 1.2em; /* Adjust font size */
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     background-size: cover;
     background-blend-mode: overlay;
-    border: 2px solid #dcdde1; /* Szegély a .container-hez hasonlóan */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Árnyék a .container-hez igazítva */
-    padding: 30px; /* Belső tér */
-    border-radius: 0; /* Lekerekítés eltávolítva, hogy teljes szélességű legyen */
-    display: flex; /* Flexbox használata */
-    flex-direction: column; /* Függőleges elrendezés */
-    align-items: center; /* Vízszintesen középre igazítás */
-    justify-content: center; /* Függőlegesen középre igazítás */
-    gap: 10px;
-    max-width: 2480px;
-    position: relative; /* Ensure child elements are positioned relative to the header */
+    border: 2px solid #dcdde1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: row; /* Change layout to horizontal */
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Space out elements */
+    gap: 10px; /* Add spacing between elements */
+    position: relative;
     z-index: 1;
-    text-align: center; /* Szöveg középre igazítása */
-    overflow: hidden; /* Prevent leaves from overflowing */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Animáció hozzáadása */
-    height: 150px; /* Fejléc magassága */
+    text-align: center; /* Center align content */
+    overflow: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+    height: auto; /* Remove fixed height */
+    border-bottom: 5px solid #f77f00;
+    animation: headerGlow 3s infinite alternate;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
 }
 
 .hidden-header {
-    transform: translateY(-100%); /* Fejléc eltolása a képernyőről */
-    opacity: 0; /* Átlátszóság beállítása */
+    transform: translateY(-100%);
+    opacity: 0;
 }
 
 header .leaf {
-    content: '🍂'; /* Autumn leaf emoji */
+    content: '🍂';
     position: absolute;
-    font-size: 2.5em; /* Leaf size */
-    animation: fall 20s linear infinite; /* Lassabb esés */
-    opacity: 0.8; /* Slight transparency */
-    left: calc(var(--random-left, 50%) * 1%); /* Use CSS variable for random horizontal position */
-    animation-delay: var(--random-delay, 0s); /* Use CSS variable for random animation delay */
+    font-size: 1.5em; /* Reduce font size */
+    animation: optimizedFall 8s linear infinite; /* Reduced animation speed */
+    opacity: 0.8;
+    left: calc(var(--random-left, 50%) * 1%);
+    animation-delay: var(--random-delay, 0s);
 }
 
-header .leaf:nth-child(1) { top: -50px; left: 10%; animation-delay: 0s; }
-header .leaf:nth-child(2) { top: -50px; left: 20%; animation-delay: 0.5s; }
+header .leaf:nth-child(1) { /* Első levél */ top: -50px; left: 10%; animation-delay: 0s; }
+header .leaf:nth-child(2) { /* Második levél */ top: -50px; left: 20%; animation-delay: 0.5s; }
 header .leaf:nth-child(3) { top: -50px; left: 30%; animation-delay: 1s; }
 header .leaf:nth-child(4) { top: -50px; left: 40%; animation-delay: 1.5s; }
 header .leaf:nth-child(5) { top: -50px; left: 50%; animation-delay: 2s; }
@@ -66,6 +75,10 @@ header .inner-container {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
+    flex-direction: row; /* Adjust layout */
+    justify-content: space-between; /* Space out content */
+    align-items: center; /* Align items vertically */
+    gap: 10px; /* Add spacing between elements */
 }
 
 header h1, header p {
@@ -74,7 +87,7 @@ header h1, header p {
     background: linear-gradient(135deg, #f9fbe7, #f2b179);
     color: #4a2c2a;
     padding: 15px 20px;
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     margin: 20px auto;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -85,7 +98,7 @@ header h1, header p {
 }
 
 header h1::before, header h1::after, header p::before, header p::after {
-    content: none; /* A zöld pöttyök eltávolítása */
+    content: none;
     position: absolute;
     top: -10px;
     left: -10px;
@@ -94,6 +107,7 @@ header h1::before, header h1::after, header p::before, header p::after {
     border-radius: 30px;
 }
 
+/* Animációk */
 @keyframes float {
     0%, 100% {
         transform: translateY(0);
@@ -123,13 +137,22 @@ header h1::before, header h1::after, header p::before, header p::after {
 
 @keyframes fall {
     0% {
-        transform: translateX(0) translateY(0) rotate(0deg); /* Start position */
+        transform: translateX(0) translateY(0) rotate(0deg);
     }
     50% {
-        transform: translateX(calc(var(--random-sway, 20px))) translateY(50vh) rotate(180deg); /* Midway with horizontal sway */
+        transform: translateX(calc(var(--random-sway, 20px))) translateY(50vh) rotate(180deg);
     }
     100% {
-        transform: translateX(calc(var(--random-sway, 20px) * 2)) translateY(100vh) rotate(360deg); /* End position */
+        transform: translateX(calc(var(--random-sway, 20px) * 2)) translateY(100vh) rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 
@@ -137,6 +160,14 @@ header h1 {
     order: 1;
     margin-bottom: 10px;
     position: relative;
+    font-size: 2em; /* Reduce font size */
+    color: #5e3e3c;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    word-wrap: break-word;
+    text-align: center;
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(94, 62, 60, 0.5);
 }
 
 header p {
@@ -148,20 +179,23 @@ header p {
 
 header h2 {
     margin: 0;
-    font-size: 1.5em;
-    color: #4a2c2a;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 1em; /* Reduce font size */
+    color: #a65c4f;
+    text-shadow: 1px 1px 3px rgba(166, 92, 79, 0.3);
     font-weight: bold;
     line-height: 1.5;
+    margin-top: 10px;
+    margin: 5px 0;
+    text-align: center;
 }
 
 /* Időpont és visszaszámláló */
 .event-date, .countdown {
     font-size: 1.8em;
-    color: #4a2c2a;
+    color: #6b3f3a;
     background: linear-gradient(135deg, #f9fbe7, #f2b179);
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 15px 20px;
     margin: 20px auto;
     max-width: 800px;
@@ -171,12 +205,13 @@ header h2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     line-height: 1.5;
     font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(107, 63, 58, 0.3);
 }
 
 .event-date:hover, .countdown:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #f2b179, #d46a6a); /* Illeszkedő szín */
+    background: linear-gradient(135deg, #f2b179, #d46a6a);
 }
 
 /* Tartalom doboz (Programok konténer) */
@@ -191,21 +226,21 @@ header h2 {
     border: 2px solid #dcdde1;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     padding: 30px;
-    border-radius: 12px;
-    margin-top: 0; /* Távolság eltávolítása a container tetején */
-    margin-bottom: 0; /* Lyuk eltávolítása */
+    border-radius: 8px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .container h3 {
     font-size: 1.8em;
-    color: #d46a6a; /* Őszi pirosas árnyalat */
+    color: #d46a6a;
     margin-bottom: 20px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    text-align: center; /* Szöveg középre igazítása */
-    border-bottom: 2px solid #f2b179; /* Finom alsó vonal */
-    padding-bottom: 10px; /* Tér az alsó vonal előtt */
+    text-align: center;
+    border-bottom: 2px solid #f2b179;
+    padding-bottom: 10px;
 }
 
 /* Programok lista */
@@ -222,21 +257,22 @@ ul {
 ul li {
     background: linear-gradient(135deg, #fff8e1, #f2b179);
     border: 1px solid #d4a373;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
+    position: relative;
     width: 220px;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 ul li:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(1deg);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     background: linear-gradient(135deg, #f2b179, #d46a6a);
 }
@@ -249,20 +285,25 @@ ul li:hover img {
 ul li img {
     width: 100%;
     height: 150px;
+    border: 2px solid #e0e0e0;
     border-radius: 10px;
     margin-bottom: 10px;
     object-fit: cover;
     filter: grayscale(100%);
-    border: 2px solid #e0e0e0;
-    transition: filter 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    transition: filter 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
     pointer-events: auto;
+}
+
+ul li img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 ul li p {
     font-size: 1em;
-    color: #37474f;
+    color: #5e3e3c;
     font-weight: 500;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 3px rgba(94, 62, 60, 0.3);
     margin: 10px 0;
     text-align: center;
 }
@@ -272,25 +313,28 @@ ul li p {
     cursor: pointer;
 }
 
-/* Footer */
+/* Lábléc */
 footer {
     width: 100%;
     margin: 0 auto;
     font-size: 1em;
-    background: linear-gradient(135deg, #ffffff, #f0f4f8), url('images/pattern.png') no-repeat center center, #e8eaf6;
+    background: linear-gradient(135deg, #f2b179, #d46a6a);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    color: #ffffff;
+    color: #fff8e1;
     border: 2px solid #dcdde1;
     border-radius: 0;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    padding: 0;
-    font-size: 0.9em;
+    padding: 10px 0;
+    display: block;
     text-align: center;
     margin: 0;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 0; /* Lyuk eltávolítása */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    display: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+footer:hover {
+    background-color: #d46a6a;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 footer p {
@@ -298,12 +342,28 @@ footer p {
     background: linear-gradient(135deg, #d46a6a, #a83232);
     color: #fff8e1;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     margin: 10px auto;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     text-align: center;
     margin-top: 20px;
+}
+
+footer .social-media {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer .social-media img {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+footer .social-media img:hover {
+    transform: scale(1.1);
 }
 
 /* Modális konténer */
@@ -320,70 +380,74 @@ footer p {
     z-index: 1000;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.3s ease-in-out;
+    transform: scale(0.9);
+    transition: visibility 0s, opacity 0.3s ease-in-out, transform 0.3s ease;
 }
 
 .modal.visible {
     visibility: visible;
     opacity: 1;
+    transform: scale(1);
 }
 
 .modal-content {
-    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    background: linear-gradient(135deg, #f2b179, #d46a6a);
+    color: #fff8e1;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border: 2px solid #a83232;
     text-align: center;
     max-width: 800px;
     width: 90%;
     max-height: 80%;
     overflow-y: auto;
-    text-align: center;
-    border: 2px solid #dcdde1;
     animation: fadeIn 0.3s ease-in-out;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+.modal.visible .modal-content {
+    transform: scale(1);
 }
 
-.modal img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+.modal-content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #fff8e1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .modal .close-button {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2em;
-    color: white;
-    cursor: pointer;
-}
-
-.modal .close-button {
-    position: absolute;
-    top: 10px;
+    top: 15px;
     right: 20px;
     font-size: 1.5em;
+    color: #fff8e1;
+    background: linear-gradient(135deg, #d46a6a, #a83232);
+    border: none;
+    border-radius: 25%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.modal .close-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background: #d46a6a;
 }
 
 .hidden {
-    display: none; /* Az elem rejtve van */
+    display: none;
 }
 
 .visible {
-    display: flex; /* Az elem láthatóvá válik */
+    display: flex;
 }
 
 /* Visszaszámláló */
@@ -409,15 +473,14 @@ footer p {
 
 .organizer-section {
     text-align: center;
+    font-size: 1.5em;
     background: linear-gradient(135deg, #f2b179, #d46a6a);
     color: #fff8e1;
     padding: 15px 20px;
     margin: 20px auto 0;
-    border-radius: 15px;
-    font-size: 1.5em;
+    border-radius: 8px;
     font-weight: bold;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    max-width: 800px;
 }
 
 /* Kép nagyítás modális ablak */
@@ -428,17 +491,17 @@ footer p {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    display: none; /* Alapértelmezés szerint rejtve */
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    opacity: 0; /* Láthatóság alapértelmezés szerint 0 */
+    opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
 
 #image-modal.visible {
-    display: flex; /* Láthatóvá teszi az elemet */
-    opacity: 1; /* Teljesen látható */
+    display: flex;
+    opacity: 1;
 }
 
 #image-modal img {
@@ -459,12 +522,11 @@ footer p {
 
 /* Slideshow */
 #slideshow {
-    width: 100%; /* A slideshow teljes szélességet foglal */
+    width: 100%;
     overflow: hidden;
     position: relative;
     margin: 0 auto;
-    height: 300px; /* Magasság beállítása */
-    margin-bottom: 0; /* Távolság eltávolítása a slideshow alján */
+    height: 300px;
 }
 
 .slideshow-container {
@@ -477,18 +539,24 @@ footer p {
 
 .slideshow-track {
     display: flex;
-    transition: transform 0.3s linear; /* Simább görgetés */
+    transition: transform 0.3s linear;
     will-change: transform;
-    width: auto; /* Dinamikus szélesség a JavaScript által */
-    animation: scrollLeft linear infinite; /* Continuous loop */
+    width: auto;
+    animation: scrollLeft linear infinite;
 }
 
 .slideshow-track img {
-    width: 400px; /* Növelt szélesség */
-    height: 300px; /* Magasság változatlan */
-    object-fit: cover; /* A kép arányosan kitölti a teret */
-    margin-right: 0; /* Távolság eltávolítása */
-    border-right: 2px solid #ffffff; /* Fehér csík a képek között */
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    margin-right: 0;
+    border-right: 2px solid #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slideshow-track img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes scrollLeft {
@@ -496,7 +564,16 @@ footer p {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-100% + 300px)); /* Adjust to loop seamlessly */
+        transform: translateX(calc(-100% + 300px));
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 
@@ -504,7 +581,7 @@ footer p {
 @media only screen and (max-width: 768px) {
     body, html {
         font-size: 14px;
-        overflow-x: hidden; /* Vízszintes görgetés letiltása */
+        overflow-x: hidden;
     }
 
     header {
@@ -522,11 +599,10 @@ footer p {
         font-size: 2em;
         text-align: center;
         margin-bottom: 10px;
-        margin-left: 10px;
     }
 
     header h2 {
-        font-size: 1.5em;
+        font-size: 1em;
         margin-top: 0;
         text-align: center;
         margin-left: 10px;
@@ -538,6 +614,9 @@ footer p {
 
     header p {
         font-size: 1em;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .container {
@@ -545,7 +624,7 @@ footer p {
         margin: 0 auto;
         text-align: center;
         box-sizing: border-box;
-        margin-bottom: 0; /* Lyuk eltávolítása mobilon */
+        width: 100%;
     }
 
     ul {
@@ -556,23 +635,15 @@ footer p {
     }
 
     ul li {
-        margin: 0;
         padding: 10px;
-        box-sizing: border-box;
-    }
-
-    .container h3 {
-        font-size: 1.2em;
-    }
-
-    ul li {
         width: 100%;
-        padding: 10px;
+        box-sizing: border-box;
     }
 
     ul li img {
         height: 140px;
-        object-position: center top; /* A kép tartalmát lejjebb tolja */
+        width: 100%;
+        object-position: center top;
     }
 
     .event-date, .countdown {
@@ -587,12 +658,12 @@ footer p {
 
     header h1 {
         font-size: 2em;
-        text-align: center;
     }
 
     header p {
         font-size: 1.1em;
         text-align: center;
+        padding: 10px;
     }
 
     ul li {
@@ -600,16 +671,10 @@ footer p {
         flex: 1 1 calc(100% - 20px);
         padding: 10px;
         margin-bottom: 10px;
-        font-size: 1em;
     }
 
     ul li img {
         height: 140px;
-    }
-
-    .event-date, .countdown {
-        font-size: 1em;
-        padding: 10px;
     }
 
     .container {
@@ -618,8 +683,8 @@ footer p {
 
     .container h3 {
         font-size: 1.5em;
-        margin-bottom: 20px;
         text-align: center;
+        margin-bottom: 20px;
     }
 
     header h1, header h2 {
@@ -631,30 +696,117 @@ footer p {
         margin-top: 10px;
     }
 
+    footer {
+        margin-top: 0;
+    }
+
+    .slideshow-track {
+        animation: none;
+    }
+
     @keyframes scrollLeft {
         0% {
             transform: translateX(0);
         }
         100% {
-            transform: translateX(-100%); /* Végtelen görgetés mobilon */
+            transform: translateX(-100%);
         }
     }
 
-    .slideshow-track {
-        animation: none; /* Mobilon a JavaScript kezeli a görgetést */
-    }
-
-    footer {
-        margin-top: 0; /* Lyuk eltávolítása mobilon */
-    }
-
     header .leaf {
-        display: none; /* A falevelek teljes eltávolítása mobilon */
+        display: none;
     }
 
     .leaf-container {
-        display: none; /* Falevél konténer teljes eltávolítása mobilon */
+        display: none;
     }
+
+    header {
+        padding: 15px; /* Reduce padding for smaller screens */
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.8em; /* Adjust font size for smaller screens */
+        margin-bottom: 10px;
+    }
+
+    header h2 {
+        font-size: 1em; /* Adjust subtitle font size */
+        margin-top: 5px;
+    }
+
+    .inner-container {
+        gap: 10px; /* Reduce spacing between elements */
+    }
+
+    #language-toggle {
+        top: 5px; /* Adjust position for smaller screens */
+        right: 5px;
+        width: 40px; /* Reduce size of the language toggle */
+    }
+}
+
+/* Further optimize for very small screens */
+@media only screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.6em; /* Adjusted font size */
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    ul li {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .gallery-button {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+
+    header h1 {
+        font-size: 1.5em; /* Further reduce font size */
+    }
+
+    header h2 {
+        font-size: 0.9em; /* Adjust subtitle font size */
+    }
+
+    .inner-container {
+        gap: 5px; /* Further reduce spacing */
+    }
+
+    #language-toggle {
+        width: 35px; /* Further reduce size of the language toggle */
+    }
+}
+
+/* Gombok sima hover effektjei */
+button, .gallery-button, .modal .close-button {
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover, .gallery-button:hover {
+    transform: scale(1.1);
+    background-color: #d46a6a;
+}
+
+/* Animációk optimalizálása */
+@keyframes optimizedFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.leaf {
+    animation: optimizedFall 8s linear infinite; /* Reduced animation speed */
 }
 
 @keyframes pulse {
@@ -670,41 +822,189 @@ footer p {
 
 .leaf {
     position: absolute;
-    font-size: 2.5em;
+    font-size: 1.5em; /* Reduce font size */
     animation: fall linear infinite;
-    pointer-events: none; /* Prevent interaction */
+    pointer-events: none;
 }
 
 .gallery-button {
     display: block;
-    background: linear-gradient(135deg, #f9fbe7, #f2b179); /* Illeszkedő szín */
-    color: #4a2c2a; /* Illeszkedő szövegszín */
+    background: linear-gradient(135deg, #f9fbe7, #f2b179);
+    color: #4a2c2a;
     text-decoration: none;
-    padding: 15px 20px; /* Az időpont méretéhez igazítva */
-    border-radius: 15px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    text-align: center;
+    border-radius: 8px;
     font-size: 1.2em;
     font-weight: bold;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Az időpont árnyékához igazítva */
-    margin: 20px auto; /* Középre igazítás és távolság */
-    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-button:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Hover állapot */
-    background: linear-gradient(135deg, #f2b179, #d46a6a); /* Illeszkedő szín */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #f2b179, #d46a6a);
 }
 
 #modal-image {
-    opacity: 1; /* Azonnali megjelenítés */
+    opacity: 1;
 }
 
 #modal-image.hidden {
-    display: none; /* Az áttetszőség helyett rejtjük el */
+    display: none;
 }
 
 .gallery-button-container {
     text-align: center;
-    margin: 20px 0; /* Távolság a slideshow-tól */
+    margin: 20px 0;
+}
+
+@keyframes headerGlow {
+    from {
+        box-shadow: 0 0 10px rgba(255, 127, 0, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(255, 127, 0, 1);
+    }
+}
+
+#event-description {
+    font-size: 1.2em;
+    color: #6b3f3a;
+    margin: 10px auto;
+    max-width: 800px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #fff8e1, #f2b179);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+/* Programok részletes leírása */
+.program-details-section {
+    text-align: center;
+    background: linear-gradient(135deg, #fff8e1, #f2b179);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.program-details-section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.program-details-section h3 {
+    font-size: 1.8em;
+    color: #6b3f3a;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.program-details-section p {
+    font-size: 1.2em;
+    color: #4a2c2a;
+    margin: 0;
+}
+
+/* Helyettesítő stílus hozzáadása */
+.gallery-image {
+    background-color: transparent;
+    color: inherit;
+    text-align: unset;
+    line-height: unset;
+    font-size: inherit;
+    display: block;
+    align-items: unset;
+    justify-content: unset;
+}
+
+.gallery-image::before {
+    content: none;
+    background-color: transparent;
+    color: inherit;
+}
+
+/* Linkek */
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: #d46a6a;
+}
+
+/* Add focus styles for better accessibility */
+a:focus, button:focus {
+    outline: 2px solid #d46a6a;
+    outline-offset: 2px;
+}
+
+/* Általános hover effektusok */
+*:hover {
+    transition: all 0.3s ease;
+}
+
+/* Program megjegyzés */
+.program-note {
+    font-size: 1em;
+    color: #5e3e3c;
+    text-align: center;
+    font-style: italic;
+    background: linear-gradient(135deg, #fff8e1, #f2b179);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Nyelvváltó gomb */
+.language-button {
+    display: block;
+    margin: 0 auto 10px auto;
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.language-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust .header-title to center-align content */
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center align title */
+    gap: 20px;
+    text-align: center;
+    flex-wrap: nowrap;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .header-title {
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        justify-content: center; /* Center align content */
+    }
+
+    .header-title h1 {
+        font-size: 1.5em; /* Adjust title size for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .header-title {
+        flex-direction: column; /* Stack logos and title vertically */
+        gap: 10px; /* Reduce spacing for smaller screens */
+    }
 }
