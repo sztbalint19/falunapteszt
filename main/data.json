@@ -1,0 +1,147 @@
+{
+  "event": {
+    "title": {
+      "hu": "Meghívó",
+      "de": "Einladung"
+    },
+    "date": "2025-09-24",
+    "day": {
+      "hu": "Szerda",
+      "de": "Mittwoch"
+    },
+    "location": {
+      "hu": "Leányvár főtere",
+      "de": "Hauptplatz von Leinwar"
+    },
+    "organizer": {
+      "hu": "Leányvári Német Nemzetiségi Egyesület",
+      "de": "Deutscher Nationalitätenverein Leinwar"
+    },
+    "contact": {
+      "email": "info@leanyvarfalunap.hu",
+      "phone": "+36 20 123 4567"
+    },
+    "highlights": {
+      "grape_harvest": {
+        "hu": "Szüreti felvonulás",
+        "de": "Erntedankumzug"
+      },
+      "brass_band": {
+        "hu": "Pilisszentiváni Fúvószenekar",
+        "de": "Blaskapelle Pilisszentiván"
+      },
+      "cultural_dance": {
+        "hu": "Leányvári kultúrcsoportok",
+        "de": "Kulturgruppen aus Leinwar"
+      },
+      "wine_tasting": {
+        "hu": "Szüreti borkóstoló",
+        "de": "Weinverkostung"
+      },
+      "tractor_show": {
+        "hu": "Lovaskocsis felvonulás",
+        "de": "Pferdekutschenumzug"
+      },
+      "szigenszentmarton_dance": {
+        "hu": "Szigenszentmártoni Tánccsoport",
+        "de": "Tanzgruppe Szigenszentmárton"
+      },
+      "maaner_eulen_dance": {
+        "hu": "Maaner Eulen Tánccsoport",
+        "de": "Tanzgruppe Maaner Eulen"
+      },
+      "lohr_band": {
+        "hu": "Lohr Kapelle",
+        "de": "Lohr Kapelle"
+      },
+      "dorog_band": {
+        "hu": "Dorogi Bányásszenekar",
+        "de": "Bergmannskapelle Dorog"
+      },
+      "altsteiner_band": {
+        "hu": "Altsteiner",
+        "de": "Altsteiner"
+      }
+    },
+    "emojis": {
+      "grape_harvest": "🍇",
+      "brass_band": "🎶",
+      "cultural_dance": "💃",
+      "wine_tasting": "🍷",
+      "tractor_show": "🐴",
+      "szigenszentmarton_dance": "🩰",
+      "maaner_eulen_dance": "🦉",
+      "lohr_band": "🎺",
+      "dorog_band": "🎷",
+      "altsteiner_band": "🎻"
+    },
+    "description": {
+      "hu": "\"A tradíció nem a hamu megőrzését, hanem a láng fenntartását jelenti!\" (Ricarda Huch)",
+      "de": "\"Tradition heißt nicht, die Asche bewahren, sondern das Feuer weitertragen\"(Ricarda Huch)"
+    },
+    "program_details": {
+      "grape_harvest": {
+        "hu": "vonulunk",
+        "de": "valami német szöveg"
+      },
+      "brass_band": {
+        "hu": "zene",
+        "de": "musik"
+      },
+      "cultural_dance": {
+        "hu": "tánci",
+        "de": "tánc csak németül"
+      },
+      "wine_tasting": {
+        "hu": "Finom borok",
+        "de": "német szöveg"
+      },
+      "tractor_show": {
+        "hu": "Szép lovak",
+        "de": "Pferd"
+      },
+      "szigenszentmarton_dance": {
+        "hu": "táncosok",
+        "de": "németül valami"
+      },
+      "maaner_eulen_dance": {
+        "hu": "tinci tánci",
+        "de": "tinci tánci németül"
+      },
+      "lohr_band": {
+        "hu": "muzsikaszó",
+        "de": "muzsikaszó németül"
+      },
+      "dorog_band": {
+        "hu": "bányász",
+        "de": "német bányász"
+      },
+      "altsteiner_band": {
+        "hu": "blahblah",
+        "de": "blahblah németül"
+      }
+    },
+    "programs_title": {
+      "hu": "Programok:",
+      "de": "Programme:"
+    },
+    "countdown_units": {
+      "days": {
+        "hu": "nap",
+        "de": "Tage"
+      },
+      "hours": {
+        "hu": "óra",
+        "de": "Stunden"
+      },
+      "minutes": {
+        "hu": "perc",
+        "de": "Minuten"
+      },
+      "seconds": {
+        "hu": "másodperc",
+        "de": "Sekunden"
+      }
+    }
+  }
+}

@@ -1,80 +1,16 @@
 {
-  "event": {
-    "title": {
-      "hu": "Meghívó",
-      "de": "Einladung"
+  "elomenu": {
+    "hu": {
+      "title": "Meghívunk!",
+      "subtitle": "Csatlakozz hozzánk egy felejthetetlen eseményre",
+      "moreContent": "További tartalmakért, <a href='main/fomenu.html'>kattints ide</a>.",
+      "footer": "Alig várjuk, hogy találkozzunk veled!"
     },
-    "date": "2025-09-24",
-    "day": {
-      "hu": "Szerda",
-      "de": "Mittwoch"
-    },
-    "location": {
-      "hu": "Leányvár főtere",
-      "de": "Hauptplatz von Leinwar"
-    },
-    "organizer": {
-      "hu": "Leányvári Német Nemzetiségi Egyesület",
-      "de": "Deutscher Nationalitätenverein Leinwar"
-    },
-    "contact": {
-      "email": "info@leanyvarfalunap.hu",
-      "phone": "+36 20 123 4567"
-    },
-    "highlights": {
-      "grape_harvest": {
-        "hu": "Szüreti felvonulás",
-        "de": "Erntedankumzug"
-      },
-      "brass_band": {
-        "hu": "Pilisszentiváni Fúvószenekar előadása",
-        "de": "Auftritt der Blaskapelle Pilisszentiván"
-      },
-      "cultural_dance": {
-        "hu": "Leányvári kultúrcsoportok fellépése",
-        "de": "Auftritt der Kulturgruppen aus Leinwar"
-      },
-      "wine_tasting": {
-        "hu": "Szüreti borkóstoló finom borokkal",
-        "de": "Weinverkostung mit köstlichen Weinen"
-      },
-      "tractor_show": {
-        "hu": "Lovaskocsis felvonulás és bemutató",
-        "de": "Pferdekutschenumzug und Vorführung"
-      }
-    },
-    "emojis": {
-      "grape_harvest": "🍇",
-      "brass_band": "🎶",
-      "cultural_dance": "💃",
-      "wine_tasting": "🍷",
-      "tractor_show": "🐴"
-    },
-    "description": {
-      "hu": "\"A tradíció nem a hamu megőrzését, hanem a láng fenntartását jelenti!\" (Ricarda Huch)",
-      "de": "\"Tradition heißt nicht, die Asche bewahren, sondern das Feuer weitertragen\"(Ricarda Huch)"
-    },
-    "program_details": {
-      "grape_harvest": {
-        "hu": "vonulunk",
-        "de": "valami német szöveg"
-      },
-      "brass_band": {
-        "hu": "zene",
-        "de": "musik"
-      },
-      "cultural_dance": {
-        "hu": "tánci",
-        "de": "tánc csak németül"
-      },
-      "wine_tasting": {
-        "hu": "Finom borok",
-        "de": "német szöveg"
-      },
-      "tractor_show": {
-        "hu": "Szép lovak",
-        "de": "Pferd"
-      }
+    "de": {
+      "title": "Wir laden dich ein!",
+      "subtitle": "Begleite uns zu einem unvergesslichen Ereignis",
+      "moreContent": "Für weitere Inhalte, <a href='main/fomenu.html'>klicke hier</a>.",
+      "footer": "Wir freuen uns darauf, dich zu treffen!"
     }
   }
 }

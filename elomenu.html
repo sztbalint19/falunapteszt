@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Csatlakozz hozzánk egy felejthetetlen eseményre Leányváron!">
+    <meta name="keywords" content="Leányvár, esemény, meghívó, kultúra, programok">
+    <meta name="author" content="Leányvári Német Nemzetiségi Egyesület">
+    <title>Meghívó</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header role="banner" aria-label="Fő fejléc">
+            <h1 id="header-title" class="title">Meghívunk!</h1>
+            <p id="header-subtitle" class="subtitle">Csatlakozz hozzánk egy felejthetetlen eseményre</p>
+            <img id="language-toggle" class="language-button" src="images/deutsch.png" alt="Deutsch" aria-label="Nyelvváltás gomb">
+        </header>
+        <main role="main">
+            <section id="logos" class="logos" aria-label="Támogatók logói">
+                <img src="images/leanyvar-logo.png" alt="Leányvár Logo" class="logo">
+                <img src="images/vtg-logo.png" alt="VTG Logo" class="logo">
+            </section>
+            <section id="more-content" class="more-content" aria-labelledby="more-content-text">
+                <h2 id="more-content-text">További tartalmakért, <a href="main/fomenu.html">kattints ide</a>.</h2>
+            </section>
+        </main>
+        <footer role="contentinfo">
+            <p id="footer-text">Alig várjuk, hogy találkozzunk veled!</p>
+            <button id="back-to-top" aria-label="Vissza az oldal tetejére">⬆️</button>
+        </footer>
+    </div>
+    <script>
+        let currentLanguage = "hu";
+
+        document.getElementById("language-toggle").addEventListener("click", () => {
+            currentLanguage = currentLanguage === "hu" ? "de" : "hu";
+            updateLanguage();
+        });
+
+        function updateLanguage() {
+            fetch("data.json")
+                .then(response => response.json())
+                .then(data => {
+                    const translations = data.elomenu[currentLanguage];
+                    document.getElementById("header-title").textContent = translations.title;
+                    document.getElementById("header-subtitle").textContent = translations.subtitle;
+                    document.getElementById("more-content-text").innerHTML = translations.moreContent;
+                    document.getElementById("footer-text").textContent = translations.footer;
+                    document.getElementById("language-toggle").alt = currentLanguage === "hu" ? "Deutsch" : "Magyar";
+                    document.getElementById("language-toggle").src = currentLanguage === "hu" ? "images/deutsch.png" : "images/hungarian.png";
+                })
+                .catch(error => console.error("Hiba a fordítások betöltésekor:", error));
+        }
+    </script>
+</body>
+</html>
