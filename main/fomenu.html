@@ -185,6 +185,22 @@
         window.addEventListener('load', () => {
             document.getElementById('loader').style.display = 'none';
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLanguage = getCookie("language");
+            if (savedLanguage) {
+                currentLanguage = savedLanguage;
+            }
+
+            const languageToggle = document.getElementById("language-toggle");
+            if (languageToggle) {
+                languageToggle.addEventListener("click", () => {
+                    currentLanguage = currentLanguage === "hu" ? "de" : "hu";
+                    setCookie("language", currentLanguage, 30);
+                    updateLanguage();
+                });
+            }
+        });
     </script>
     <script src="script.js"></script>
 </body>
