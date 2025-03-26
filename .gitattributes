@@ -1,5 +1,6 @@
+# filepath: d:\projekt\.gitattributes
 * text=auto
-*.html text
-*.css text
-*.js text
-*.json text
+*.html text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.js text eol=lf
