@@ -9,13 +9,7 @@ const imagePaths = [
     'images.hatterkep27.jpg', 'images.hatterkep28.jpg', 'images.hatterkep29.jpg', 'images.hatterkep30.jpg',
     'images.hatterkep31.jpg', 'images.hatterkep32.jpg', 'images.hatterkep33.jpg', 'images.hatterkep34.jpg',
     'images.hatterkep35.jpg', 'images.hatterkep36.jpg', 'images.hatterkep37.jpg', 'images.hatterkep38.jpg',
-    'images.hatterkep39.jpg', 'images.hatterkep40.jpg', 'images.hatterkep41.jpg', 'images.hatterkep42.jpg',
-    'images.hatterkep43.jpg', 'images.hatterkep44.jpg', 'images.hatterkep45.jpg', 'images.hatterkep46.jpg',
-    'images.hatterkep47.jpg', 'images.hatterkep48.jpg', 'images.hatterkep49.jpg', 'images.hatterkep50.jpg',
-    'images.hatterkep51.jpg', 'images.hatterkep52.jpg', 'images.hatterkep53.jpg', 'images.hatterkep54.jpg',
-    'images.hatterkep55.jpg', 'images.hatterkep56.jpg', 'images.hatterkep57.jpg', 'images.hatterkep58.jpg',
-    'images.hatterkep59.jpg', 'images.hatterkep60.jpg', 'images.hatterkep61.jpg', 'images.hatterkep62.jpg',
-    'images.hatterkep63.jpg', 'images.hatterkep64.jpg'
+    'images.hatterkep39.jpg', 'images.hatterkep40.jpg'
 ];
 
 let currentLanguage = "hu";

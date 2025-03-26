@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // A mappa elérési útja
-const folderPath = path.resolve(__dirname, 'TDZ_2019-09-21 Falunap felvonulás');
+const folderPath = path.resolve(__dirname, 'TDZ_2022-09-24 Falunap');
 
 if (!fs.existsSync(folderPath)) {
     console.error(`A mappa nem található: ${folderPath}`);
@@ -23,7 +23,7 @@ fs.readdir(folderPath, (err, files) => {
         return;
     }
 
-    let index = 15;
+    let index = 1;
 
     jpgFiles.forEach((file) => {
         const oldPath = path.join(folderPath, file);
