@@ -159,7 +159,7 @@ function setupProgramModal() {
 
 function startCountdown() {
     const countdownElement = document.getElementById('countdown');
-    const eventDate = new Date('2025-09-24T00:00:00');
+    const eventDate = new Date('2025-09-24T01:00:00');
     const interval = setInterval(() => {
         const now = new Date();
         const diff = eventDate - now;
